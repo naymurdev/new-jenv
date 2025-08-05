@@ -1,0 +1,23 @@
+{
+  "status": "ready",
+  "originalFilePath": "videos\\spline-liquide.mp4",
+  "provider": "mux",
+  "providerMetadata": {
+    "mux": {
+      "uploadId": "02dn4JiPIN7eyNqaDxAl7MDbgb6BXek02y9mEjUKfsCDw",
+      "assetId": "KKl5Hc2xXSECngU7TE3gT3maGqpc4O2gOFvISen01oOY",
+      "playbackId": "xb2olVIsoq900iJtnQ7RRboo8vFkvTW2vSa2Qo4FeoB8"
+    }
+  },
+  "createdAt": 1739813032430,
+  "updatedAt": 1739813047202,
+  "size": 50259070,
+  "sources": [
+    {
+      "src": "https://stream.mux.com/xb2olVIsoq900iJtnQ7RRboo8vFkvTW2vSa2Qo4FeoB8.m3u8",
+      "type": "application/x-mpegURL"
+    }
+  ],
+  "poster": "https://image.mux.com/xb2olVIsoq900iJtnQ7RRboo8vFkvTW2vSa2Qo4FeoB8/thumbnail.webp",
+  "blurDataURL": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAABQAgCdASoQAAgAAQAcJbACdDBHW6ADR5QgWUAA/voNP41lnCLJx8OG/5GJN/w91sl/FZ1fD3m3PQ3QzAF6PZbH+mjFyTqyHGcwFVhFIT+YoO03wvlm/7vo3/6Lv/f/t/yx0t3BpLx9JR9X+P+tOWv//FhmW/Pa+1/fTTT8/NCbqXfM6u+/+lIAAAA="
+}

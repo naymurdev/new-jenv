@@ -73,12 +73,12 @@ const appleGaramond = localFont({
       style: "italic",
     },
     {
-      path: "./fonts/AppleGaramond-light.woff",
+      path: "./fonts/AppleGaramond-Light.woff",
       weight: "normal",
       style: "normal",
     },
     {
-      path: "./fonts/AppleGaramond-lightItalic.woff",
+      path: "./fonts/AppleGaramond-LightItalic.woff",
       weight: "normal",
       style: "italic",
     },

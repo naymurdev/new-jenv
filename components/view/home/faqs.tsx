@@ -16,7 +16,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 
 const SpeechRecognitionApi =
   typeof window !== "undefined"
-    ? window?.SpeechRecognition ||
+    ? (window as any)?.SpeechRecognition ||
       (window as any)?.webkitSpeechRecognition ||
       null
     : null;

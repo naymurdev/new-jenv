@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import localFont from "next/font/local";
 import { ViewTransitions } from "next-view-transitions";
-import PageTransition from "@/components/common/page-transition";
 import Headers from "@/components/view/home/headers";
 import { siteConfig } from "@/lib/utils";
-import ProtectedWrapper from "@/components/common/protected-wrapper";
 
 const satoshi = localFont({
   src: [

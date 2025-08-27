@@ -180,7 +180,7 @@ function HowWeWork() {
                 className={`relative cursor-pointer transition-all h-full duration-500 ${
                   isActive ? "lg:flex-[2]" : "lg:flex-[0.5]"
                 }`}
-                onClick={() => setActiveStep(isActive ? undefined : step.id)}
+                onClick={() => setActiveStep(isActive ? 0 : step.id as number)}
                 variants={cardVariants}
                 animate={isActive ? "active" : "inactive"}
                 whileHover={{

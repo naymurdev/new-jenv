@@ -2,7 +2,6 @@
 
 import { cn } from "@/lib/utils";
 import { motion, useAnimation } from "motion/react";
-import { useRef } from "react";
 
 export default function HandshakeIconLink({
   hrefLink = "#",

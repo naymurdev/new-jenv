@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { motion, useAnimation } from "framer-motion";
+import { motion, useAnimation } from "motion/react";
 
 export default function HandshakeIconLink({
   hrefLink = "#",

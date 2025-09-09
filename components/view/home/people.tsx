@@ -108,20 +108,18 @@ function People() {
           <motion.h2 className="xl:text-8xl md:text-7xl sm:text-6xl text-4xl text-transparent bg-clip-text bg-gradient-to-b from-neutral-100 via-neutral-50 to-neutral-500 text-center">
             Who we are
           </motion.h2>
-          <motion.p className="text-lg text-white max-w-lg mx-auto pt-2 text-center">
-            We’re a focused group of designers, developers, and product
-            thinkers. Together, we turn ideas into real, testable software –
-            fast, lean, and user-first.
+          <motion.p className="text-lg text-white max-w-md mx-auto pt-2 text-center">
+            We’re a small, senior team. Designers and engineers who love to ship.
           </motion.p>
 
-          <button className="px-4 py-2 mx-auto mt-5 rounded-full bg-orange hover:bg-orange-600 shadow-lg shadow-orange-500 transition-colors cursor-pointer text-white font-medium flex gap-2 items-center h-12">
+          {/* <button className="px-4 py-2 mx-auto mt-5 rounded-full bg-orange hover:bg-orange-600 shadow-lg shadow-orange-500 transition-colors cursor-pointer text-white font-medium flex gap-2 items-center h-12">
             Book a free call
             <span className="relative flex size-3">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75"></span>
               <span className="relative inline-flex size-3 rounded-full bg-white"></span>
             </span>
-          </button>
-          <div className="grid xl:grid-cols-4 grid-cols-2 w-full sm:gap-4 gap-2 mt-10">
+          </button> */}
+          <div className="grid xl:grid-cols-4 grid-cols-2 w-full pt-10 gap-5 ">
             {teamPeople.map((member, i) => (
               <motion.div
                 key={member.id}
@@ -134,8 +132,13 @@ function People() {
                 layoutId={member.memberName}
                 onMouseEnter={() => setHoveredMember(member.id)}
                 onMouseLeave={() => setHoveredMember(null)}
-                className=" group relative z-2 items-center cursor-pointer justify-center h-96 rounded-lg overflow-hidden"
+                className={cn(
+                  "relative z-2 ",
+                  // "hover:-rotate-0 hover:-translate-y-24 hover:z-10"
+                )}
               >
+                <div className="flex items-center cursor-pointer transition-all hover: justify-center h-96 rounded-lg">
+
                 <figure className="relative h-full">
                   <motion.img
                     width={500}
@@ -147,7 +150,7 @@ function People() {
                   />
                 </figure>
                 <ProgressiveBlur
-                  className="pointer-events-none absolute bottom-0 left-0 h-[35%] w-full"
+                  className="pointer-events-none absolute -bottom-2 left-0 h-[35%] w-full rounded-lg"
                   blurIntensity={4}
                 />
                 <article className="text-left flex absolute bottom-2 px-4 w-full justify-between items-center text-white p-2 mt-3 rounded-lg">
@@ -165,6 +168,8 @@ function People() {
                     </div>
                   </div>
                 </article>
+                </div>
+
               </motion.div>
             ))}
           </div>
@@ -201,7 +206,8 @@ function People() {
                       {teamPeople[index]?.role}
                     </motion.h1>
                     <button
-                      className=" z-2 absolute top-4 cursor-pointer text-4xl right-4"
+                      className=" z-2  absolute top-4 cursor-pointer text-4xl right-4"
+                      type="button"
                       onClick={() => {
                         setOpen(false);
                       }}

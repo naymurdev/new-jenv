@@ -43,17 +43,20 @@ function HeroSection() {
             blurIntensity="sm"
             glowIntensity="sm"
             shadowIntensity="sm"
-            className="w-fit h-12 mx-auto mt-12 px-5 rounded-full relative flex items-center justify-center text-white row-span-2"
+            className="w-fit h-12 mx-auto mt-12 px-5 rounded-full relative flex items-center justify-center cursor-pointer text-white row-span-2"
           >
             <span className="relative z-10">GET STARTED</span>
           </LiquidGlassCard>
         </article>
 
-        <svg
+        <motion.svg
           width="1440"
           height="1829"
-          className="absolute 2xl:top-44 left-[12%] right-[12%] -z-10 "
+          className="absolute 2xl:top-44 left-0 w-full -z-10 "
           viewBox="0 0 1440 1829"
+          initial={{ opacity: 0, y: -20, filter: "blur(10px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 1, delay: 1 }}
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -206,8 +209,11 @@ function HeroSection() {
               <stop offset="0.375" stop-color="#FBA874" />
             </linearGradient>
           </defs>
-        </svg>
-        <svg
+        </motion.svg>
+        <motion.svg
+          initial={{ opacity: 0, y: -20, filter: "blur(10px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 1, delay: 1.5 }}
           className="absolute 2xl:top-44 left-0 -z-10 w-full"
           width="2136"
           height="2214"
@@ -394,11 +400,11 @@ function HeroSection() {
               <stop offset="0.375" stop-color="#FBA874" />
             </linearGradient>
           </defs>
-        </svg>
+        </motion.svg>
       </section>
       <Service />
       <HightlightSec />
-      <HowWeWork />
+      {/* <HowWeWork /> */}
       <Testimonial />
       <Pricing />
       <People />

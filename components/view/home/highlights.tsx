@@ -15,32 +15,37 @@ const dataArr: IdataArr[] = [
   {
     id: 1,
     title: "Tailored Solutions, Not Templates",
-    des: "We build solutions customized for your unique needs—no one-size-fits-all templates here.",
+    des: "Big agencies will drag you through endless planning cycles. We work in short, focused sprints so you’re live fast.",
   },
   {
     id: 2,
     title: "Top-Tier Talent",
-    des: "Our team includes seasoned professionals with deep expertise across design, development, and strategy.",
+    des: "The people you meet on day one are the same ones designing, coding, and shipping your product. Less translation, more traction. ",
   },
   {
     id: 3,
     title: "Transparent Communication",
-    des: "We maintain clear, honest, and consistent communication throughout every stage of your project.",
+    des: "We say “no” more than “yes.” Why? Because the quickest way to kill an MVP is bloat. We help you protect the core — the one thing users must experience.",
   },
   {
     id: 4,
     title: "Fast Turnaround Time",
-    des: "We deliver high-quality results on time—without sacrificing creativity or attention to detail.",
+    des: "You’ll know what you’re spending, what you’re getting, and when it’s done. ",
   },
   {
     id: 5,
     title: "Full-Cycle Support",
-    des: "From ideation to launch (and beyond), we handle everything so you can focus on growing your business.",
+    des: "Clean repos. Documented code. Straightforward handover. If you want to keep building with us, great. If not, you’ll never feel trapped.",
   },
   {
     id: 6,
     title: "Results That Matter",
-    des: "We don’t just make things look good—we ensure your product performs, converts, and scales effectively.",
+    des: "We only use AI where it reduces time, cost, or friction for you and your users. Otherwise, we keep it simple.",
+  },
+  {
+    id: 6,
+    title: "Results That Matter",
+    des: "You’re in the loop daily — shaping, refining, steering. It feels less like hiring a vendor, more like extending your own team.",
   },
 ];
 
@@ -116,7 +121,7 @@ export default function HightlightSec() {
   }, [isShiftPressed, scrollNext, scrollPrev]);
 
   return (
-    <section className="relative z-10 2xl:px-0 px-10 py-10 container mx-auto">
+    <section className="relative z-10 2xl:px-0 px-10 py-10 xl:container mx-auto">
       <article className="py-20">
         <span className="text-center block w-fit bg-orange text-white px-5 py-2 rounded-full">
           Highlights
@@ -166,7 +171,7 @@ export default function HightlightSec() {
                   WebkitUserSelect: "none",
                 }}
               >
-                <div className="relative  overflow-hidden transition-all duration-300 2xl:p-8 p-6 2xl:h-[40rem] lg:h-[32rem] h-96 shadow-sm flex flex-col justify-between">
+                <div className="relative  overflow-hidden transition-all duration-300 2xl:p-8 p-6 2xl:h-[32rem] lg:h-[28rem] h-96 shadow-sm flex flex-col justify-between">
                   <p className="2xl:text-xl lg:text-lg text-base leading-[100%] text-neutral-200 mt-2">
                     {data.des}
                   </p>

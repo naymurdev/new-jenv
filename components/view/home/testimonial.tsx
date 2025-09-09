@@ -139,7 +139,7 @@ function Testimonial() {
     <section className="relative z-10 text-center 2xl:px-0 px-10 2xl:container mx-auto py-32">
       <article>
         <motion.span
-          className="text-center block w-fit mx-auto bg-orange-500 text-white px-5 py-2 rounded-full"
+          className="text-center block w-fit mx-auto bg-orange-600 text-white px-5 py-2 rounded-full"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -153,7 +153,7 @@ function Testimonial() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          More about us?
+         Proof in Action
         </motion.h1>
       </article>
 

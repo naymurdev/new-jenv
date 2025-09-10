@@ -15,40 +15,24 @@ interface IdataArr {
 const dataArr: IdataArr[] = [
   {
     id: 1,
-    title: "Tailored Solutions, Not Templates",
-    des: "Big agencies will drag you through endless planning cycles. We work in short, focused sprints so you’re live fast.",
+    title: "Launch in Weeks, Not Months",
+    des: "Big agencies will drag you through endless planning cycles. We work in short, focused sprints so you’re live in 4–6 weeks, not still waiting for slides.",
+    // visual: "🚀 Stopwatch, rocket, or sprinting figure to emphasize speed."
   },
   {
     id: 2,
-    title: "Top-Tier Talent",
-    des: "Clean repos. Documented code. Straightforward handover. If you want to keep building with us, great. If not, you’ll never feel trapped.",
+    title: "Engineering You Can Trust",
+    des: "Clean repos. Documented code. Seamless handover. Work with us long-term or take it in-house. You’ll never feel locked in.",
+    // visual: "💻 Code brackets, clean repo folder icon, or developer illustration."
   },
   {
     id: 3,
-    title: "Transparent Communication",
-    des: "We say “no” more than “yes.” Why? Because the quickest way to kill an MVP is bloat. We help you protect the core — the one thing users must experience.",
-  },
-  // {
-  //   id: 4,
-  //   title: "Fast Turnaround Time",
-  //   des: "You’ll know what you’re spending, what you’re getting, and when it’s done. ",
-  // },
-  // {
-  //   id: 5,
-  //   title: "Full-Cycle Support",
-  //   des: "Clean repos. Documented code. Straightforward handover. If you want to keep building with us, great. If not, you’ll never feel trapped.",
-  // },
-  // {
-  //   id: 6,
-  //   title: "Results That Matter",
-  //   des: "We only use AI where it reduces time, cost, or friction for you and your users. Otherwise, we keep it simple.",
-  // },
-  // {
-  //   id: 6,
-  //   title: "Results That Matter",
-  //   des: "You’re in the loop daily — shaping, refining, steering. It feels less like hiring a vendor, more like extending your own team.",
-  // },
+    title: "Radical Transparency",
+    des: "We say “no” more than “yes” because the quickest way to kill an MVP is bloat. We protect your core so users get the one thing that matters most.",
+    // visual: "📊 Open chat bubbles, checklist icon, or magnifying glass for clarity."
+  }
 ];
+
 
 export default function HightlightSec() {
   const isMobile = useMediaQuery("(max-width: 1024px)");
@@ -197,13 +181,14 @@ export default function HightlightSec() {
 
 const CardContent = ({ data }: { data: any }) => (
   <div className="border-orange border-2 bg-gradient-to-b from-orange via-orange-800/20 to-orange-900/20 backdrop-blur-md rounded-xl">
-    <div className="relative overflow-hidden transition-all duration-300 2xl:p-8 p-3 2xl:h-[32rem] lg:h-[28rem] h-96 shadow-sm flex flex-col justify-between">
-      <p className="2xl:text-xl lg:text-lg text-base leading-[100%] text-neutral-200 mt-2">
+    <div className="relative overflow-hidden transition-all duration-300 2xl:p-4 p-5 2xl:h-[32rem] lg:h-[28rem] h-96 shadow-sm flex flex-col justify-between">
+      <h1 className="2xl:text-3xl lg:text-3xl text-2xl font-medium text-neutral-200">{data.title}</h1>
+      <p className="2xl:text-lg lg:text-base text-sm leading-[120%] text-neutral-200 mt-2">
         {data.des}
       </p>
-      <button className="w-16 h-16 opacity-0 group-hover:opacity-100 -left-10 group-hover:left-0 transition-all duration-500 ease-in-out grid place-content-center">
+      {/* <button className="w-16 h-16 opacity-0 group-hover:opacity-100 -left-10 group-hover:left-0 transition-all duration-500 ease-in-out grid place-content-center">
         <Plus />
-      </button>
+      </button> */}
     </div>
   </div>
 );

@@ -12,6 +12,7 @@ import People from "./people";
 import Faqs from "./faqs";
 import Pricing from "./pricing";
 import Footer from "./footer";
+import Projects from "./projects";
 
 function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -20,6 +21,7 @@ function HeroSection() {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
+    <>
     <ReactLenis root>
       <section
         className="w-full rounded-md relative grid place-items-center h-screen"
@@ -213,7 +215,7 @@ function HeroSection() {
         <motion.svg
           initial={{ opacity: 0, y: -20, filter: "blur(10px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{ duration: 1, delay: 1.5 }}
+          transition={{ duration: 1, delay: 1 }}
           className="absolute 2xl:top-44 left-0 -z-10 w-full"
           width="2136"
           height="2214"
@@ -405,12 +407,14 @@ function HeroSection() {
       <Service />
       <HightlightSec />
       {/* <HowWeWork /> */}
+      <Projects />
       <Testimonial />
       <Pricing />
       <People />
       <Faqs />
       <Footer/>
     </ReactLenis>
+    </>
   );
 }
 

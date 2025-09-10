@@ -49,7 +49,7 @@ function Pricing() {
 
         {/* Card 2 */}
         <div className="bg-neutral-950 p-4 rounded-3xl text-white flex flex-col gap-4 justify-between border border-white/10">
-          <div className="bg-neutral-900 border border-neutral-800 p-6 rounded-2xl min-h-96 flex flex-col justify-between">
+          <div className="bg-background border border-neutral-800 p-6 rounded-2xl min-h-96 flex flex-col justify-between">
             <div className="w-full flex justify-between">
               <svg
                 width="93"
@@ -111,7 +111,7 @@ function Pricing() {
 
         {/* Card 3 */}
         <div className="bg-neutral-950 p-4 rounded-3xl text-white flex flex-col gap-4 justify-between border border-white/10">
-          <div className="bg-neutral-900 border border-neutral-800 p-6 rounded-2xl min-h-96 flex flex-col justify-between">
+          <div className="bg-background border border-neutral-800 p-6 rounded-2xl min-h-96 flex flex-col justify-between">
             <div className="w-full flex justify-between">
               <svg
                 width="77"

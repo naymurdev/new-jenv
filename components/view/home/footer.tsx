@@ -9,7 +9,7 @@ function Footer() {
   return (
     <>
       <footer className="relative pb-10 overflow-hidden">
-        <div className="2xl:container 2xl:px-0 px-10 h-full relative z-10 mx-auto pb-5"> 
+        <div className="2xl:container max-w-6xl 2xl:px-0 px-10 h-full relative z-10 mx-auto pb-5"> 
 
         <svg
           className="absolute -top-[999px] -left-[999px] w-0 h-0"
@@ -42,8 +42,9 @@ function Footer() {
 
         <div className="flex justify-between text-white">
           <article className="w-full max-w-lg relative text-left py-6">
-            <h1 className="relative z-10 xl:text-7xl md:text-5xl sm:text-4xl text-3xl">
-              We’re ready <br /> when you are
+            <h1 className="relative z-10 xl:text-6xl md:text-4xl sm:text-3xl text-2xl">
+            We’re ready when you stop overthinking.
+
             </h1>
             <p className=" pt-4">
               From invoices & inventory to back office, our smart systems handle

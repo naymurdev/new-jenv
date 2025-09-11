@@ -20,6 +20,7 @@ import {
 } from "@/components/ui/dialog";
 import ProfileCardIcon from "../../icons/linkedin";
 import GlobeIcon from "../../icons/globe";
+import Heading from "@/components/common/heading";
 
 const teamPeople = [
   {
@@ -101,19 +102,12 @@ function People() {
   return (
     <>
       <section
-        className="2xl:container 2xl:px-0 px-10 h-full rounded-md relative z-10 mx-auto pb-5  "
+        className="2xl:container max-w-6xl 2xl:px-0 px-10 h-full rounded-md relative z-10 mx-auto pb-5  "
         ref={scope}
       >
         <div className="h-full py-16 text-white">
-          <motion.h2 className="xl:text-8xl md:text-7xl sm:text-6xl text-4xl text-transparent bg-clip-text bg-gradient-to-b from-neutral-100 via-neutral-50 to-neutral-500 text-center">
-            Who we are
-          </motion.h2>
-          <motion.p className="text-lg text-white max-w-md mx-auto pt-2 text-center">
-            We’re a small, senior team. Designers and engineers who love to
-            ship.
-          </motion.p>
-
-     
+          <Heading badge="Who Are We" title="The People You’ll Blame" description="We’re a small, senior team. No interns, no bloated middle management. Just builders who love shipping."/>
+    
           <div className="grid xl:grid-cols-4 grid-cols-2 w-full pt-10 gap-5 ">
 
             {teamPeople.map((member, i) => (
@@ -124,7 +118,7 @@ function People() {
                   // "hover:-rotate-0 hover:-translate-y-24 hover:z-10"
                 )}
               >
-                <div className="flex items-center cursor-pointer transition-all hover: justify-center h-[25rem] rounded-lg bg-gradient-to-b from-orange via-[#f56632] to-[#fc6846]">
+                <div className="flex items-center cursor-pointer transition-all hover: justify-center 2xl:h-[25rem] h-80 rounded-lg bg-gradient-to-b from-orange via-[#f56632] to-[#fc6846]">
                   <figure className="relative h-full">
                     <motion.img
                       width={500}
@@ -177,11 +171,11 @@ function People() {
                   </div>
 
                   {/* Short description (optional) */}
-                  <p className="mt-4 text-center">
+                  <p className="mt-4 text-center 2xl:text-base text-sm">
                     {member.description[0]}
                     {member.memberName === "Naymur Rahman Ripon" && member.description[1]}
                   </p>
-                  <p className="mt-2 text-center">
+                  <p className="mt-2 text-center 2xl:text-base text-sm">
                     {member.memberName === "Naymur Rahman Ripon" && member.description[2]}
                   </p>
                 </div>

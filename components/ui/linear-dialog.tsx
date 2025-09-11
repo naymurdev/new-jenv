@@ -274,12 +274,12 @@ function DialogContainer({ children, className }: DialogContainerProps) {
           <motion.div
             key={`backdrop-${uniqueId}`}
             data-lenis-prevent
-            className='fixed inset-0 h-full z-50 w-full backdrop-blur-sm'
+            className='fixed inset-0 h-full z-50 w-full backdrop-blur-xl'
             initial={{ opacity: 0 }}
-            style={{
-              background: "radial-gradient(125% 125% at 50% 10%, #161414 40%, #f84503 100%)",
-              willChange: 'opacity', 
-            }}
+            // style={{
+            //   background: "radial-gradient(125% 125% at 50% 10%, #161414 40%, #f84503 100%)",
+            //   willChange: 'opacity', 
+            // }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{
@@ -287,7 +287,9 @@ function DialogContainer({ children, className }: DialogContainerProps) {
               ease: [0.4, 0.0, 0.4, 1],
             }}
             onClick={() => setIsOpen(false)}
-          />
+          >
+            <img src="rotate-bg.png" className="absolute top-20 left-0 w-full h-full" />
+          </motion.div>
           <motion.div 
             className={cn(`fixed inset-0 z-50 w-fit mx-auto`, className)}
             style={{ willChange: 'transform' }} // GPU acceleration for transforms
@@ -391,6 +393,7 @@ function DialogImage({ src, alt, className, style }: DialogImageProps) {
   const { uniqueId } = useDialog();
 
   return (
+    
     <motion.img
       src={src}
       alt={alt}
@@ -424,7 +427,7 @@ function DialogClose({ children, className, variants }: DialogCloseProps) {
       type='button'
       aria-label='Close dialog'
       key={`dialog-close-${uniqueId}`}
-      className={cn('absolute right-6 top-6', className)}
+      className={cn('absolute right-6 top-6 text-white', className)}
       initial='initial'
       animate='animate'
       exit='exit'

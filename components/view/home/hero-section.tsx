@@ -5,7 +5,6 @@ import { LiquidGlassCard } from "@/components/ui/liquid-glass";
 
 import { ReactLenis } from "lenis/react";
 import Service from "./service";
-import HightlightSec from "./highlights";
 import HowWeWork from "./how-we-work";
 import Testimonial from "./testimonial";
 import People from "./people";
@@ -13,6 +12,7 @@ import Faqs from "./faqs";
 import Pricing from "./pricing";
 import Footer from "./footer";
 import Projects from "./projects";
+import WhyNotUs from "./why-not-us";
 
 function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -57,11 +57,11 @@ function HeroSection() {
             transition={{ duration: 1, delay: 1 }}
             src="/background.png"
             alt=""
-            className="absolute 2xl:top-44 left-0 w-full -z-10 "
+            className="absolute top-44 left-0 w-full -z-10 "
           />
         </section>
         <Service />
-        <HightlightSec />
+        <WhyNotUs />
         <Projects />
         <Testimonial />
         <Pricing />

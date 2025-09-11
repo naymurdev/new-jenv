@@ -188,7 +188,7 @@ export const LiquidGlassCard = ({
 
         {/* Edge Layer (Inner highlights) */}
         <div
-          className='absolute inset-0 z-20'
+          className='absolute inset-0'
           style={{
             borderRadius,
             boxShadow: shadowStyles[shadowIntensity],

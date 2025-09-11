@@ -1,6 +1,8 @@
 "use client";
 import React from "react";
 import { motion } from "motion/react";
+import Heading from "@/components/common/heading";
+import { Check, CheckCheck } from "lucide-react";
 function Pricing() {
   const baseStroke =
     "stroke-white [vector-effect:non-scaling-stroke] transition-none group-hover:opacity-0";
@@ -17,24 +19,17 @@ function Pricing() {
         alt=""
         className="absolute 2xl:top-32 left-0 w-full rotate-180 skew-12 scale-110 -z-10"
       />
-      <section className="relative z-10 text-center 2xl:px-0 px-10 2xl:container mx-auto py-32">
-        <article>
-          <span className="text-center block w-fit mx-auto bg-orange text-white px-5 py-2 rounded-full">
-            Pricing
-          </span>
-          <h1 className="xl:text-8xl md:text-7xl sm:text-6xl text-4xl leading-[120%] text-transparent bg-clip-text bg-gradient-to-b from-neutral-100 via-neutral-50 to-neutral-500 text-center">
-            Stop Guessing. Here’s the Price.
-          </h1>
-          <p className="text-lg text-white max-w-xl mx-auto pt-2 text-center">
-            Transparent pricing. No hidden fees. Just the cost of getting your
-            idea out of your head and into the world.
-          </p>
-        </article>
+      <section className="relative z-10 text-center 2xl:px-0 px-10 2xl:container max-w-6xl mx-auto py-32">
+        <Heading
+          badge="Pricing"
+          title="Stop Guessing. Here’s the Price."
+          description="Transparent pricing. No hidden fees. Just the cost of getting your idea out of your head and into the world."
+        />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-10 text-white max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-10 text-white 2xl:max-w-6xl mx-auto">
           {/* Card 1 */}
-          <div className="bg-orange p-4 rounded-3xl flex flex-col justify-between border border-white/10">
-            <div className="group bg-orange-700 p-6 rounded-2xl min-h-56 flex flex-col justify-between">
+          <div className="bg-neutral-950 p-4 rounded-3xl text-white flex flex-col gap-4 justify-between border border-white/10">
+            <div className="group bg-background border border-neutral-800 p-6 rounded-2xl min-h-48 flex flex-col justify-between">
               <div className="w-full flex justify-between">
                 <svg
                   width="76"
@@ -70,18 +65,41 @@ function Pricing() {
                 </div>
               </div>
             </div>
-            <h1 className="text-xl pt-1 text-white/80 leading-[130%] text-left">
+
+            <button className="bg-orange w-full text-white font-medium py-3 px-5 cursor-pointer rounded-xl hover:shadow-lg shadow-orange border-b-4 border-orange-700 hover:border-orange transition">
+              Get started today
+            </button>
+            <h1 className="text-xl pt-1 text-white/80 leading-[130%] text-left px-2">
               A cheap way to find out if anyone even wants your idea before you
               waste six figures.
             </h1>
-            <button className="bg-white mb-1 w-full text-black font-medium py-3 px-5 cursor-pointer rounded-xl hover:shadow-lg shadow-white border-b-4 border-neutral-300 hover:border-white transition">
-              Get started today
-            </button>
+            <ul className="text-left grid gap-2 px-2 pb-1">
+              <li className="flex gap-2 items-center">
+                <CheckCheck size={16} />
+                Market & competitor research
+              </li>
+              <li className="flex gap-2 items-center">
+                <CheckCheck size={16} />
+                Conversion-focused copywriting
+              </li>
+              <li className="flex gap-2 items-center">
+                <CheckCheck size={16} />
+                Wireframes that guide design
+              </li>
+              <li className="flex gap-2 items-center">
+                <CheckCheck size={16} />
+                Fully responsive development
+              </li>
+              <li className="flex gap-2 items-center">
+                <CheckCheck size={16} />
+                Built in Webflow or Framer
+              </li>
+            </ul>
           </div>
 
           {/* Card 2 */}
-          <div className="bg-neutral-950 p-4 rounded-3xl text-white flex flex-col gap-4 justify-between border border-white/10">
-            <div className="group bg-background border border-neutral-800 p-6 rounded-2xl min-h-56 flex flex-col justify-between">
+          <div className="bg-orange p-4 rounded-3xl flex flex-col gap-4 justify-between border border-white/10">
+            <div className="group bg-orange-700 p-6 rounded-2xl min-h-48 flex flex-col justify-between ">
               <div className="w-full flex justify-between">
                 <svg
                   width="93"
@@ -194,18 +212,43 @@ function Pricing() {
                 </div>
               </div>
             </div>
-            <h1 className="text-xl text-white/80 leading-[130%] text-left pt-1">
+
+            <button className="bg-white w-full text-black font-medium py-3 px-5 cursor-pointer rounded-xl hover:shadow-lg shadow-white border-b-4 border-neutral-300 hover:border-white transition">
+              Get started today
+            </button>
+
+            <h1 className="text-xl text-white/80 leading-[130%] text-left pt-0 px-2">
               Core product in 2–6 weeks. Something you can actually show
               investors instead of explaining with your hands.
             </h1>
-            <button className="bg-orange w-full text-white font-medium py-3 px-5 mb-1 cursor-pointer rounded-xl hover:shadow-lg shadow-orange border-b-4 border-orange-700 hover:border-orange transition">
-              Get started today
-            </button>
+            <ul className="text-left px-2 pb-1">
+              <li className="flex gap-2 items-center">
+                <CheckCheck size={16} />
+                UX discovery & user flows
+              </li>
+              <li className="flex gap-2 items-center">
+                <CheckCheck size={16} />
+                Custom UI + product design
+              </li>
+              <li className="flex gap-2 items-center">
+                <CheckCheck size={16} />
+                Lean MVP development
+              </li>
+              <li className="flex gap-2 items-center">
+                <CheckCheck size={16} />
+                Clean, scalable codebase
+              </li>
+              <li className="flex gap-2 items-center">
+                <CheckCheck size={16} />
+                1-month launch support
+              </li>
+            </ul>
+
           </div>
 
           {/* Card 3 */}
           <div className="bg-neutral-950 p-4 rounded-3xl text-white flex flex-col gap-4 justify-between border border-white/10">
-            <div className="group bg-background border border-neutral-800 p-6 rounded-2xl min-h-56 flex flex-col justify-between">
+            <div className="group bg-background border border-neutral-800 p-6 rounded-2xl min-h-48 flex flex-col justify-between">
               <div className="w-full flex justify-between">
                 <svg
                   width="77"
@@ -241,13 +284,36 @@ function Pricing() {
                 </div>
               </div>
             </div>
-            <h1 className="text-xl text-white/80 leading-[130%] text-left pt-1">
+
+            <button className="bg-orange w-full text-white font-medium py-3 px-5 cursor-pointer rounded-xl hover:shadow-lg shadow-orange border-b-4 border-orange-700 hover:border-orange transition">
+              Get started today
+            </button>
+            <h1 className="text-xl text-white/80 leading-[130%] text-left pt-1 px-2">
               Full MVP + integrations + a 30-day pilot. Basically everything you
               need except the excuses.
             </h1>
-            <button className="bg-orange w-full text-white font-medium py-3 px-5 mb-1 cursor-pointer rounded-xl hover:shadow-lg shadow-orange border-b-4 border-orange-700 hover:border-orange transition">
-              Get started today
-            </button>
+            <ul className="text-left px-2 pb-1">
+              <li className="flex gap-2 items-center">
+                <CheckCheck size={16} />
+                End-to-end MVP build
+              </li>
+              <li className="flex gap-2 items-center">
+                <CheckCheck size={16} />
+                Payments & automation setup
+              </li>
+              <li className="flex gap-2 items-center">
+                <CheckCheck size={16} />
+                Cloud deployment with monitoring
+              </li>
+              <li className="flex gap-2 items-center">
+                <CheckCheck size={16} />
+                Scalable database architecture
+              </li>
+              <li className="flex gap-2 items-center">
+                <CheckCheck size={16} />
+                30-day pilot + iterations
+              </li>
+            </ul>
           </div>
         </div>
       </section>

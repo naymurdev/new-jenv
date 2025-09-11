@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { Phone } from "lucide-react";
 import { LiquidGlassCard } from "@/components/ui/liquid-glass";
 import { cn } from "@/lib/utils";
+import Heading from "@/components/common/heading";
 
 const steps = [
   {
@@ -60,84 +61,11 @@ const steps = [
 function Testimonial() {
   const [activeStep, setActiveStep] = useState(1); // Start with no active step
 
-  // Animation variants for smooth content reveal
-  const contentVariants = {
-    hidden: {
-      opacity: 0,
-      y: 30,
-      scale: 0.95,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-        staggerChildren: 0.1,
-      },
-    },
-    exit: {
-      opacity: 0,
-      y: -20,
-      scale: 0.95,
-      transition: {
-        duration: 0.3,
-        ease: "easeIn",
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: {
-      opacity: 0,
-      y: 20,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.4,
-        ease: "easeOut",
-      },
-    },
-  };
-
-  const imageVariants = {
-    hidden: {
-      opacity: 0,
-      scale: 0.8,
-      rotate: -5,
-    },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      rotate: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    },
-  };
-
-  const cardVariants = {
-    inactive: {
-      scale: 1,
-      transition: {
-        duration: 0.3,
-      },
-    },
-    active: {
-      scale: 1.02,
-      transition: {
-        duration: 0.3,
-      },
-    },
-  };
 
   return (
-    <section className="relative z-10 text-center 2xl:px-0 px-10 2xl:container mx-auto py-32">
-      <article>
+    <section className="relative z-10 text-center 2xl:px-0 px-10 2xl:container max-w-6xl mx-auto py-32">
+      <Heading badge="Success Stories" title="People Who Actually Paid Us" description="Forget the buzzwords. Here’s what actual clients say about working with JENV"/>
+      {/* <article>
         <motion.span
           className="text-center block w-fit mx-auto bg-orange-600 text-white px-5 py-2 rounded-full"
           initial={{ opacity: 0, y: -20 }}
@@ -153,13 +81,13 @@ function Testimonial() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-         Proof in Action
+        People Who Actually Paid Us
         </motion.h1>
-        <motion.p className="text-lg text-white max-w-md mx-auto pt-2 text-center">
+        <motion.p className="text-lg text-white max-w-2xl mx-auto pt-2 text-center">
           Forget the buzzwords. Here’s what actual clients say about working
           with JENV
         </motion.p>
-      </article>
+      </article> */}
 
       <div className="my-10 border-t-2 border-orange grid grid-cols-2 text-left text-white">
         <div className="grid grid-cols-6 border-r-2 border-orange">

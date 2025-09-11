@@ -2,7 +2,16 @@
 
 import type React from "react";
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, Loader2, Mic, Plus, X, XCircle } from "lucide-react";
+import {
+  ArrowDownRight,
+  ArrowRight,
+  Loader2,
+  Mic,
+  MoveUpRight,
+  Plus,
+  X,
+  XCircle,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
@@ -13,6 +22,7 @@ import TargetIconLink from "@/components/icons/target";
 import HandshakeIconLink from "@/components/icons/handshake";
 import { AnimatePresence, motion } from "motion/react";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { LiquidGlassCard } from "@/components/ui/liquid-glass";
 
 const SpeechRecognitionApi =
   typeof window !== "undefined"
@@ -24,15 +34,15 @@ const SkeletonTextLoader = () => {
   return (
     <div className="space-y-3 animate-pulse">
       <div className="flex items-center gap-2">
-        <span className="text-base font-medium text-gray-700">
-          JENNY is thinking...
+        <span className="text-base font-medium text-gray-400">
+          Jenny is thinking...
         </span>
       </div>
       <div className="space-y-2 mt-2">
         {[85, 90].map((width, idx) => (
           <div
             key={idx}
-            className="h-4 rounded bg-gradient-to-r py-3 my-3 from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-[shimmer_1.6s_ease-in-out_infinite]"
+            className="h-4 rounded bg-gradient-to-r py-3 my-3 from-neutral-700 via-neutral-700 to-neutral-800 bg-[length:200%_100%] animate-[shimmer_1.6s_ease-in-out_infinite]"
             style={{ width: `${width}%` }}
           />
         ))}
@@ -172,13 +182,19 @@ export default function FaqQueryAgent() {
       <motion.img
         src="/rotate-bg.png"
         alt=""
-        className="absolute 2xl:-bottom-96 left-0 w-full"
+        className="absolute xl:-bottom-96 left-0 w-full"
         initial={{ opacity: 0, y: 16, filter: "blur(8px)" }}
         whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 1, delay: 1 }}
       />
-      <div className="p-8 rounded-3xl w-full max-w-4xl sm:p-12 relative overflow-hidden">
+      <LiquidGlassCard
+        draggable={false}
+        blurIntensity="sm"
+        glowIntensity="sm"
+        shadowIntensity="sm"
+        className="p-8 rounded-3xl w-full max-w-4xl sm:p-12 relative overflow-hidden"
+      >
         <div className="relative z-10">
           <div className="text-center mb-12">
             <h2 className="font-librecaslon text-4xl sm:text-5xl lg:text-6xl text-white mb-4 tracking-tight">
@@ -189,17 +205,13 @@ export default function FaqQueryAgent() {
               answering whatever’s on your mind.
             </p>
           </div>
-          {/* <ul>
-            <li>What's Your Typeical Project Size</li>
-            <li>What's Your Typeical Project Size</li>
-            <li>What's Your Typeical Project Size</li>
-          </ul> */}
-          <div className="relative max-w-2xl mx-auto" data-lenis-prevent>
+
+          <div className="relative w-full" data-lenis-prevent>
             <ScrollArea
               ref={scrollAreaRef}
               data-lenis-prevent
               className={cn(
-                "w-full max-w-2xl mx-auto py-5 pr-2",
+                "w-full py-5 pr-2",
                 chatMessages.length > 2 ? "h-[26rem]" : "h-auto"
               )}
             >
@@ -223,11 +235,11 @@ export default function FaqQueryAgent() {
                       </div>
                     ) : (
                       <div className="max-w-sm">
-                        <Card className="shadow-none border border-neutral-700 gap-2 bg-neutral-950 p-3 rounded-br-none">
+                        <Card className="shadow-none border border-neutral-700 gap-2 bg-neutral-900/80 backdrop-blur-md  p-3 rounded-br-none">
                           <div className="flex items-center justify-between">
                             <div className="flex items-center gap-1">
                               <CardTitle className="text-sm font-semibold text-gray-50">
-                                JENNY Response
+                                Jenny Response
                               </CardTitle>
                             </div>
                           </div>
@@ -256,7 +268,7 @@ export default function FaqQueryAgent() {
                     className="mb-2 flex justify-end"
                   >
                     <div className="w-[24rem]">
-                      <Card className="shadow-none border-none bg-gradient-to-br from-neutral-900 to-neutral-950 border-2 border-gray-200 p-0">
+                      <Card className="shadow-none border-none bg-neutral-800/30 backdrop-blur-md  border-2 border-neutral-400 p-0">
                         <CardContent className="p-5">
                           <SkeletonTextLoader />
                         </CardContent>
@@ -267,45 +279,58 @@ export default function FaqQueryAgent() {
               </AnimatePresence>
               <ScrollBar orientation="vertical" />
             </ScrollArea>
-            {/* <div className="h-10 w-full bg-gradient-to-b from-background to-transparent absolute -top-0 left-0 z-20"></div> */}
+            {chatMessages?.length > 2 && (
+              <div className="h-10 w-full bg-gradient-to-b from-background to-transparent absolute -top-0 left-0 z-20"></div>
+            )}
             {/* <div className="h-10 w-full bg-gradient-to-t from-background to-transparent absolute -bottom-0 left-0 z-20"></div> */}
           </div>
+          {chatMessages?.length < 1 && (
+            <div className="gap-2 justify-center text-white pb-4">
+              {suggestions.map((suggestion, index) => (
+                <>
+                  <div
+                    key={index}
+                    className="group p-2 w-[70%] flex items-center relative justify-between cursor-pointer transition-colors border-b "
+                    onClick={() => handleSuggestionClick(suggestion.query)}
+                  >
+                    <span className="relative inline-flex overflow-hidden w-full">
+                      <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[160%] group-hover:skew-y-6">
+                        {suggestion.query}
+                      </div>
+                      <div className="absolute translate-y-[160%] skew-y-3 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0">
+                        {suggestion.query}
+                      </div>
+                    </span>
+                    <MoveUpRight
+                      size={20}
+                      className="absolute right-2 top-1/2 -translate-y-1/2 "
+                    />
+                  </div>
+                </>
+              ))}
+            </div>
+          )}
 
           <div className="w-full space-y-2 mx-auto relative">
             <form
               onSubmit={handleSubmit}
-              className="relative bg-neutral-950 p-3 rounded-xl border border-zinc-900"
+              className="relative p-3 z-10 rounded-xl bg-neutral-900/30 backdrop-blur-md border border-neutral-800/20"
             >
               <textarea
                 ref={textareaRef}
-                placeholder="Ask anything JENV"
+                placeholder="Ask anything"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 onKeyPress={handleKeyPress}
-                className="w-full min-h-14 px-2 text-white text-lg outline-0 placeholder-zinc-700 rounded-xl focus:ring-0 focus:border-transparent resize-none"
+                className="w-full min-h-14 px-2 text-white placeholder:text-neutral-200 text-lg outline-0 rounded-xl focus:ring-0 focus:border-transparent resize-none"
                 rows={1}
               />
-              <div className="flex items-end gap-3 justify-between">
-                <div className="flex items-center gap-2 justify-center">
-                  {suggestions.map((suggestion, index) => (
-                    <div
-                      key={index}
-                      className="px-2 h-8 bg-neutral-900 text-white rounded-lg text-xs flex items-center cursor-pointer transition-colors "
-                      onClick={() => handleSuggestionClick(suggestion.query)}
-                    >
-                      <suggestion.icon
-                        className="w-4 h-4 mr-1"
-                        title={suggestion.text}
-                      />
-                    </div>
-                  ))}
-                </div>
-
+              <div className="flex items-end gap-3 justify-end">
                 <div className=" flex items-center gap-2">
                   <Button
                     type="submit"
                     size="icon"
-                    className="h-10 w-12 rounded-lg hover:shadow-sm shadow-none bg-zinc-50 border text-black hover:bg-zinc-50 cursor-pointer"
+                    className="h-10 w-12 border-none rounded-lg hover:shadow-sm shadow-none bg-orange border text-white hover:bg-orange-600 cursor-pointer"
                     disabled={!query.trim()}
                   >
                     <ArrowRight className="h-4 w-4" />
@@ -315,7 +340,7 @@ export default function FaqQueryAgent() {
             </form>
           </div>
         </div>
-      </div>
+      </LiquidGlassCard>
     </section>
   );
 }

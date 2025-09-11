@@ -136,7 +136,7 @@ function HowWeWork() {
   };
 
   return (
-    <section className="relative z-10 text-center 2xl:px-0 px-10 2xl:container mx-auto py-32">
+    <section className="relative z-10 text-center 2xl:px-0 px-10 2xl:container max-w-6xl mx-auto py-32">
       <article>
         <motion.span
           className="text-center block w-fit mx-auto bg-orange-500 text-white px-5 py-2 rounded-full"

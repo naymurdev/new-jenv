@@ -109,145 +109,88 @@ function People() {
             Who we are
           </motion.h2>
           <motion.p className="text-lg text-white max-w-md mx-auto pt-2 text-center">
-            We’re a small, senior team. Designers and engineers who love to ship.
+            We’re a small, senior team. Designers and engineers who love to
+            ship.
           </motion.p>
 
-          {/* <button className="px-4 py-2 mx-auto mt-5 rounded-full bg-orange hover:bg-orange-600 shadow-lg shadow-orange-500 transition-colors cursor-pointer text-white font-medium flex gap-2 items-center h-12">
-            Book a free call
-            <span className="relative flex size-3">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75"></span>
-              <span className="relative inline-flex size-3 rounded-full bg-white"></span>
-            </span>
-          </button> */}
+     
           <div className="grid xl:grid-cols-4 grid-cols-2 w-full pt-10 gap-5 ">
+
             {teamPeople.map((member, i) => (
               <motion.div
                 key={member.id}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                onClick={() => {
-                  setIndex(i);
-                  setOpen(true);
-                }}
-                layoutId={member.memberName}
-                onMouseEnter={() => setHoveredMember(member.id)}
-                onMouseLeave={() => setHoveredMember(null)}
                 className={cn(
-                  "relative z-2 ",
+                  "relative z-2 group "
                   // "hover:-rotate-0 hover:-translate-y-24 hover:z-10"
                 )}
               >
-                <div className="flex items-center cursor-pointer transition-all hover: justify-center h-96 rounded-lg">
-
-                <figure className="relative h-full">
-                  <motion.img
-                    width={500}
-                    height={600}
-                    alt={member.memberName}
-                    src={member.memberImage.src}
-                    className="w-full h-full object-cover rounded-lg"
-                    initial={{ opacity: 1 }}
+                <div className="flex items-center cursor-pointer transition-all hover: justify-center h-[25rem] rounded-lg bg-gradient-to-b from-orange via-[#f56632] to-[#fc6846]">
+                  <figure className="relative h-full">
+                    <motion.img
+                      width={500}
+                      height={600}
+                      alt={member.memberName}
+                      src={member.memberImage.src}
+                      className="w-full h-full object-cover rounded-lg"
+                      initial={{ opacity: 1 }}
+                    />
+                  </figure>
+                  <ProgressiveBlur
+                    className="pointer-events-none absolute -bottom-0 left-0 h-[35%] w-full rounded-lg"
+                    blurIntensity={4}
                   />
-                </figure>
-                <ProgressiveBlur
-                  className="pointer-events-none absolute -bottom-2 left-0 h-[35%] w-full rounded-lg"
-                  blurIntensity={4}
-                />
-                <article className="text-left flex absolute bottom-2 px-4 w-full justify-between items-center text-white p-2 mt-3 rounded-lg">
-                  <div className="relative w-full">
-                    <h1 className=" sm:text-xl text-sm  leading-[100%] duration-500 transition-opacity font-semibold">
-                      {member.memberName}{" "}
-                      <span className="sm:text-base text-sm block pt-1 text-white/80 font-normal">
-                        {member.role}
-                      </span>
-                    </h1>
-                    <div className="flex gap-3 pt-5">
-                      <XStreamlineIcon hrefLink={member.memberImage.src} />
-                      <ProfileCardIcon hrefLink={member.memberImage.src} />
-                      <GlobeIcon hrefLink={member.memberImage.src} />
+                  <article className="text-left flex absolute bottom-0 px-4 w-full justify-between items-center text-white p-2 mt-3 rounded-lg">
+                    <div className="relative w-full">
+                      <h1 className=" sm:text-2xl text-sm  leading-[100%] duration-500 transition-opacity font-medium">
+                        {member.memberName}{" "}
+                        <span className="sm:text-xl text-sm block pt-1 text-white/80 font-normal">
+                          {member.role}
+                        </span>
+                      </h1>
+                 
                     </div>
-                  </div>
-                </article>
+                  </article>
                 </div>
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-b from-orange via-[#f56632] to-[#fc6846] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center rounded-lg items-center w-full h-full p-4">
+             
+                  {/* Social icons */}
+                  <div className="flex gap-4 mt-4">
+                    <a
+                      href="#"
+                      className="hover:text-orange-400 transition-colors"
+                    >
+                      <XStreamlineIcon hrefLink={member.memberImage.src} />
+                    </a>
+                    <a
+                      href="#"
+                      className="hover:text-orange-400 transition-colors"
+                    >
+                      <ProfileCardIcon hrefLink={member.memberImage.src} />
+                    </a>
+                    <a
+                      href="#"
+                      className="hover:text-orange-400 transition-colors"
+                    >
+                      <GlobeIcon hrefLink={member.memberImage.src} />
+                    </a>
+                  </div>
 
+                  {/* Short description (optional) */}
+                  <p className="mt-4 text-center">
+                    {member.description[0]}
+                    {member.memberName === "Naymur Rahman Ripon" && member.description[1]}
+                    {member.memberName === "Naymur Rahman Ripon" && member.description[2]}
+                  </p>
+                  <p className="mt-2 text-center">
+                    {member.memberName === "Naymur Rahman Ripon" && member.description[2]}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
 
-        <Dialog open={open} onOpenChange={setOpen}>
-          <DialogContent
-            showCloseButton={false}
-            className="sm:max-w-[625px] border border-neutral-700 text-white bg-neutral-950"
-          >
-            <div className="grid gap-4">
-              <div onClick={(e) => e.stopPropagation()}>
-                <motion.div
-                  // layoutId={teamPeople[index]?.memberName}
-                  className="w-full rounded-2xl space-y-2 "
-                >
-                  <article className=" relative rounded-md  bg-zinc-900 border border-zinc-800 p-4 ">
-                    <motion.h1
-                      initial={{ scaleY: 0.2 }}
-                      animate={{ scaleY: 1 }}
-                      exit={{ scaleY: 0.2 }}
-                      transition={{ duration: 0.2 }}
-                      className="sm:text-4xl text-xl font-semibold"
-                    >
-                      {teamPeople[index]?.memberName}
-                    </motion.h1>
-                    <motion.h1
-                      initial={{ scaleY: 0.2 }}
-                      animate={{ scaleY: 1 }}
-                      exit={{ scaleY: 0.2 }}
-                      transition={{ duration: 0.2 }}
-                      className="sm:text-2xl text-xl font-medium"
-                    >
-                      {teamPeople[index]?.role}
-                    </motion.h1>
-                    <button
-                      className=" z-2  absolute top-4 cursor-pointer text-4xl right-4"
-                      type="button"
-                      onClick={() => {
-                        setOpen(false);
-                      }}
-                    >
-                      <X className="md:w-16 w-10 md:h-16 h-10" />
-                    </button>
-                    {/* <MagneticCloseButton
-                      onClick={() => {
-                        setOpen(false);
-                      }}
-                    /> */}
-                  </article>
-                  <div className="sm:flex gap-4 p-4 ">
-                    <Image
-                      src={teamPeople[index]?.memberImage.src}
-                      width={400}
-                      height={400}
-                      alt="single-image"
-                      className="rounded-2xl mx-auto shrink-0 sm:w-32 w-full h-full object-cover"
-                    />
-                    <div className="space-y-3 sm:pt-0 pt-4">
-                      {teamPeople[index]?.description?.map((des, i) => (
-                        <motion.p
-                          key={`${des}${i}`}
-                          initial={{ y: -10, opacity: 0 }}
-                          animate={{ y: 0, opacity: 1 }}
-                          exit={{ scaleY: -10, opacity: 0 }}
-                          transition={{ duration: 0.2, delay: 0.2 }}
-                          className=" leading-[140%]  sm:text-lg text-sm"
-                        >
-                          {des}
-                        </motion.p>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
-              </div>
-            </div>
-          </DialogContent>
-        </Dialog>
       </section>
     </>
   );

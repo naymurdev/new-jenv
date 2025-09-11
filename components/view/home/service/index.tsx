@@ -9,7 +9,7 @@ const services = [
   {
     id: "01",
     name: "Strategy Sprint",
-    icon: () => <StrategyIcon />,
+    icon: () => <img src="/strategy-icon.png" alt="strategy" />,
     description:
       "Cut through the noise. We map your idea, giving you a plan that’s  buildable",
     image: "/placeholder.svg?height=200&width=280",
@@ -17,7 +17,7 @@ const services = [
   {
     id: "02",
     name: "Zero-to-One Build",
-    icon: () => <BuildIcon />,
+    icon: () => <img src="/zero-to-one-build2.png" alt="strategy" />,
     description:
       "We design & engineer the MVP in parallel so you get a market-ready product fast",
     image: "/placeholder.svg?height=200&width=280",
@@ -25,7 +25,7 @@ const services = [
   {
     id: "03",
     name: "Smart Integrations",
-    icon: () => <IntegrationIcon />,
+    icon: () => <img src="/integrations.png" alt="strategy" />,
     description:
       "We plug in what matters — payments, automations, AI where it’s useful",
     image: "/placeholder.svg?height=200&width=280",
@@ -33,7 +33,7 @@ const services = [
   {
     id: "04",
     name: "Pilot & Learn",
-    icon: () => <LearnIcon />,
+    icon: () => <img src="/learn2.png" alt="strategy" />,
     description: "Launch to real users, gather signals, and refine",
     image: "/placeholder.svg?height=200&width=280",
   },

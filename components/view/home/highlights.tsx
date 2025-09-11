@@ -10,6 +10,7 @@ interface IdataArr {
   id: number;
   title: string;
   des: string;
+  imgSrc: string;
 }
 
 const dataArr: IdataArr[] = [
@@ -17,18 +18,21 @@ const dataArr: IdataArr[] = [
     id: 1,
     title: "Launch in Weeks, Not Months",
     des: "Big agencies will drag you through endless planning cycles. We work in short, focused sprints so you’re live in 4–6 weeks, not still waiting for slides.",
+    imgSrc:"/launch.png",
     // visual: "🚀 Stopwatch, rocket, or sprinting figure to emphasize speed."
   },
   {
     id: 2,
     title: "Engineering You Can Trust",
     des: "Clean repos. Documented code. Seamless handover. Work with us long-term or take it in-house. You’ll never feel locked in.",
+    imgSrc:"/trust.png",
     // visual: "💻 Code brackets, clean repo folder icon, or developer illustration."
   },
   {
     id: 3,
     title: "Radical Transparency",
     des: "We say “no” more than “yes” because the quickest way to kill an MVP is bloat. We protect your core so users get the one thing that matters most.",
+    imgSrc:"/radical.png",
     // visual: "📊 Open chat bubbles, checklist icon, or magnifying glass for clarity."
   }
 ];
@@ -180,12 +184,16 @@ export default function HightlightSec() {
 }
 
 const CardContent = ({ data }: { data: any }) => (
-  <div className="border-orange border-2 bg-gradient-to-b from-orange via-orange-800/20 to-orange-900/20 backdrop-blur-md rounded-xl">
-    <div className="relative overflow-hidden transition-all duration-300 2xl:p-4 p-5 2xl:h-[32rem] lg:h-[28rem] h-96 shadow-sm flex flex-col justify-between">
-      <h1 className="2xl:text-3xl lg:text-3xl text-2xl font-medium text-neutral-200">{data.title}</h1>
-      <p className="2xl:text-lg lg:text-base text-sm leading-[120%] text-neutral-200 mt-2">
+  <div className="border-orange border-4 bg-gradient-to-b from-orange via-orange-800/20 to-orange-900/20 backdrop-blur-md rounded-2xl">
+    <div className="relative overflow-hidden transition-all duration-300 2xl:p-4 p-5 2xl:h-[32rem] lg:h-[28rem] h-96 shadow-sm ">
+      <img src={data.imgSrc} alt={data.title} className="absolute top-0 w-full left-0 h-full object-cover rounded-xl" />
+      <article className="relative z-10 flex flex-col justify-between h-full">
+      <h1 className="2xl:text-3xl lg:text-3xl text-2xl font-bold text-neutral-200">{data.title}</h1>
+      <p className="2xl:text-lg lg:text-base text-sm font-medium leading-[120%] text-neutral-200 mt-2">
         {data.des}
       </p>
+      </article>
+
       {/* <button className="w-16 h-16 opacity-0 group-hover:opacity-100 -left-10 group-hover:left-0 transition-all duration-500 ease-in-out grid place-content-center">
         <Plus />
       </button> */}

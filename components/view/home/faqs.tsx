@@ -200,7 +200,7 @@ export default function FaqQueryAgent() {
               data-lenis-prevent
               className={cn(
                 "w-full max-w-2xl mx-auto py-5 pr-2",
-                chatMessages.length > 0 ? "h-[26rem]" : "h-auto"
+                chatMessages.length > 2 ? "h-[26rem]" : "h-auto"
               )}
             >
               <AnimatePresence>

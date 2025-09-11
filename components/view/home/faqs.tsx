@@ -24,12 +24,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { LiquidGlassCard } from "@/components/ui/liquid-glass";
 
-const SpeechRecognitionApi =
-  typeof window !== "undefined"
-    ? (window as any)?.SpeechRecognition ||
-      (window as any)?.webkitSpeechRecognition ||
-      null
-    : null;
+
 const SkeletonTextLoader = () => {
   return (
     <div className="space-y-3 animate-pulse">

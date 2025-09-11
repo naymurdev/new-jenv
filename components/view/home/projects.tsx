@@ -67,119 +67,128 @@ const items = [
 ];
 function Projects() {
   return (
-    <section
-      className="relative z-10 text-center 2xl:px-0 px-10 2xl:container mx-auto py-32"
-      drawer-wrapper=""
-    >
-      <article className="space-y-6">
-        <motion.span
-          className="text-center block w-fit mx-auto bg-orange-600 text-white px-5 py-2 rounded-full"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          Our Work
-        </motion.span>
+    <div className="relative ">
+      <motion.img
+        // initial={{ opacity: 0, y: -20, filter: "blur(10px)" }}
+        // animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+        // transition={{ duration: 1, delay: 1 }}
+        src="/rotate-bg.png"
+        alt=""
+        className="absolute 2xl:top-32 left-0 w-full rotate-180 skew-12 scale-110 -z-10"
+      />
+      <section
+        className="relative z-10 text-center 2xl:px-0 px-10 2xl:container mx-auto py-32"
+        drawer-wrapper=""
+      >
+        <article className="space-y-6">
+          <motion.span
+            className="text-center block w-fit mx-auto bg-orange-600 text-white px-5 py-2 rounded-full"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            Our Work
+          </motion.span>
 
-        <motion.h1
-          className="xl:text-8xl md:text-7xl sm:text-6xl text-4xl text-transparent bg-clip-text bg-gradient-to-b from-neutral-100 via-neutral-50 to-neutral-500 text-center font-medium"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          Innovation in Action
-        </motion.h1>
+          <motion.h1
+            className="xl:text-8xl md:text-7xl sm:text-6xl text-4xl text-transparent bg-clip-text bg-gradient-to-b from-neutral-100 via-neutral-50 to-neutral-500 text-center font-medium"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            Proof We Don’t Just Talk
+          </motion.h1>
 
-        <motion.p
-          className="max-w-2xl mx-auto text-center text-lg md:text-xl text-neutral-400"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.4 }}
-        >
-          A showcase of projects that go beyond code, solutions crafted to
-          solve real challenges, transform industries, and create lasting
-          impact.
-        </motion.p>
-      </article>
+          <motion.p
+            className="max-w-2xl mx-auto text-center text-lg md:text-xl text-neutral-400"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.4 }}
+          >
+            A gallery of shipped products. No fluff. No fake case studies. Just
+            real builds solving real problems.
+          </motion.p>
+        </article>
 
-      <div className="grid grid-cols-12 gap-4 items-end py-8">
-        {items.map((item, i) => {
-          return (
-            <>
-              <Dialog
-                transition={{
-                  type: 'spring',
-                  damping: 25,
-                  stiffness: 300,
-                  mass: 0.8,
-                  bounce: 0.02,
-                }}
-              >
-                <DialogTrigger
-                  style={{
-                    borderRadius: "12px",
+        <div className="grid grid-cols-12 gap-4 items-end py-8">
+          {items.map((item, i) => {
+            return (
+              <>
+                <Dialog
+                  transition={{
+                    type: "spring",
+                    damping: 25,
+                    stiffness: 300,
+                    mass: 0.8,
+                    bounce: 0.02,
                   }}
-                  className={cn(
-                    "flex w-full flex-col overflow-hidden  border border-neutral-700  bg-black hover:bg-neutral-900",
-                    item.className
-                  )}
                 >
-                  <DialogImage
-                    // @ts-ignore
-                    src={item.url}
-                    alt=""
-                    className="h-full w-full object-cover"
-                  />
-                  <div className="flex flex-grow flex-row items-end justify-between p-3 absolute bottom-0 w-full">
-                    <div>
-                      <DialogTitle className="text-xl dark:text-zinc-50">
-                        {item.title}
-                      </DialogTitle>
-                    </div>
-                    <button className="absolute bottom-2 right-2 p-2 bg-orange text-white rounded-xl hover:bg-orange-700">
-                      <Plus className="w-6 h-6" />
-                    </button>
-                  </div>
-                </DialogTrigger>
-                <DialogContainer className="grid place-items-center ">
-                  <DialogContent
+                  <DialogTrigger
                     style={{
-                      borderRadius: "24px",
+                      borderRadius: "12px",
                     }}
-                    className=" relative flex mx-auto flex-col border-8 border-background bg-black lg:w-[900px] w-[80%]  "
+                    className={cn(
+                      "flex w-full flex-col overflow-hidden  border border-neutral-700  bg-black hover:bg-neutral-900",
+                      item.className
+                    )}
                   >
                     <DialogImage
+                      // @ts-ignore
                       src={item.url}
                       alt=""
-                      className="h-full  object-contain w-[60%] mx-auto"
+                      className="h-full w-full object-cover"
                     />
-                    <div className="p-6">
-                      <DialogTitle className="text-5xl dark:text-zinc-50">
-                        {item.title}
-                      </DialogTitle>
-
-                      <DialogDescription
-                        disableLayoutAnimation
-                        variants={{
-                          initial: { opacity: 0, scale: 0.8, y: -40 },
-                          animate: { opacity: 1, scale: 1, y: 0 },
-                          exit: { opacity: 0, scale: 0.8, y: -50 },
-                        }}
-                      >
-                        <p className="mt-2  dark:text-zinc-500">
-                          {item.description}
-                        </p>
-                      </DialogDescription>
+                    <div className="flex flex-grow flex-row items-end justify-between p-3 absolute bottom-0 w-full">
+                      <div>
+                        <DialogTitle className="text-xl dark:text-zinc-50">
+                          {item.title}
+                        </DialogTitle>
+                      </div>
+                      <button className="absolute bottom-2 right-2 p-2 bg-orange text-white rounded-xl hover:bg-orange-700">
+                        <Plus className="w-6 h-6" />
+                      </button>
                     </div>
-                    <DialogClose className="bg-orange p-4 rounded-xl hover:bg-orange-500 cursor-pointer" />
-                  </DialogContent>
-                </DialogContainer>
-              </Dialog>
-            </>
-          );
-        })}
-      </div>
-    </section>
+                  </DialogTrigger>
+                  <DialogContainer className="grid place-items-center ">
+                    <DialogContent
+                      style={{
+                        borderRadius: "24px",
+                      }}
+                      className=" relative flex mx-auto flex-col border-8 border-background bg-black lg:w-[900px] w-[80%]  "
+                    >
+                      <DialogImage
+                        src={item.url}
+                        alt=""
+                        className="h-full  object-contain w-[60%] mx-auto"
+                      />
+                      <div className="p-6">
+                        <DialogTitle className="text-5xl dark:text-zinc-50">
+                          {item.title}
+                        </DialogTitle>
+
+                        <DialogDescription
+                          disableLayoutAnimation
+                          variants={{
+                            initial: { opacity: 0, scale: 0.8, y: -40 },
+                            animate: { opacity: 1, scale: 1, y: 0 },
+                            exit: { opacity: 0, scale: 0.8, y: -50 },
+                          }}
+                        >
+                          <p className="mt-2  dark:text-zinc-500">
+                            {item.description}
+                          </p>
+                        </DialogDescription>
+                      </div>
+                      <DialogClose className="bg-orange p-4 rounded-xl hover:bg-orange-500 cursor-pointer" />
+                    </DialogContent>
+                  </DialogContainer>
+                </Dialog>
+              </>
+            );
+          })}
+        </div>
+      </section>
+    </div>
   );
 }
 

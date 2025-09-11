@@ -1,5 +1,6 @@
 "use client";
 
+import { ProgressiveBlur } from "@/components/ui/progressive-blur";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowRight, Plus, Quote } from "lucide-react";
@@ -16,27 +17,26 @@ interface IdataArr {
 const dataArr: IdataArr[] = [
   {
     id: 1,
-    title: "Launch in Weeks, Not Months",
-    des: "Big agencies will drag you through endless planning cycles. We work in short, focused sprints so you’re live in 4–6 weeks, not still waiting for slides.",
-    imgSrc:"/launch.png",
+    title: "Launch in Weeks, Not Quarters",
+    des: "Big agencies drag you through “phases.” We ship in sprints. 4–6 weeks later, you’re live and not still waiting for a 200-slide deck.",
+    imgSrc: "/launch2.png",
     // visual: "🚀 Stopwatch, rocket, or sprinting figure to emphasize speed."
   },
   {
     id: 2,
     title: "Engineering You Can Trust",
-    des: "Clean repos. Documented code. Seamless handover. Work with us long-term or take it in-house. You’ll never feel locked in.",
-    imgSrc:"/trust.png",
+    des: "Clean repos. Documented code. Seamless handover. Keep working with us or take it in-house. No lock-in, no spaghetti mess.",
+    imgSrc: "/trust2.png",
     // visual: "💻 Code brackets, clean repo folder icon, or developer illustration."
   },
   {
     id: 3,
     title: "Radical Transparency",
-    des: "We say “no” more than “yes” because the quickest way to kill an MVP is bloat. We protect your core so users get the one thing that matters most.",
-    imgSrc:"/radical.png",
+    des: "WWe say “no” more than “yes.” Because bloat kills MVPs. We protect your core so users get the one thing that matters: a product that works. ",
+    imgSrc: "/radical2.png",
     // visual: "📊 Open chat bubbles, checklist icon, or magnifying glass for clarity."
-  }
+  },
 ];
-
 
 export default function HightlightSec() {
   const isMobile = useMediaQuery("(max-width: 1024px)");
@@ -112,18 +112,17 @@ export default function HightlightSec() {
     };
   }, [isMobile, isShiftPressed, scrollNext, scrollPrev]);
 
-
   return (
     <section className="relative z-10 2xl:px-0 px-10 py-10 xl:container mx-auto">
-      <article className="py-20">
+      <article className="py-8">
         <span className="text-center block w-fit bg-orange text-white px-5 py-2 rounded-full">
           Highlights
         </span>
-        <div className="flex gap-2 justify-between py-4">
+        <div className="flex gap-2 flex-wrap justify-between items-start py-4">
           <h1 className="xl:text-8xl md:text-7xl sm:text-6xl text-4xl text-transparent bg-clip-text bg-gradient-to-b from-neutral-100 via-neutral-50 to-neutral-500 text-center">
-            Why work with us?
+            Why Not Us?
           </h1>
-          <p className="text-lg text-white max-w-xl mx-auto pt-8">
+          <p className="text-lg text-white sm:max-w-xl pt-2">
             We tactically expand your brand into the digital world. Elaborate on
             the points for easy understanding.
           </p>
@@ -158,7 +157,7 @@ export default function HightlightSec() {
               {dataArr.map((data) => (
                 <div
                   key={data.id}
-                  className="flex-[0_0_100%] group min-w-0 sm:flex-[0_0_85%]"
+                  className="flex-[0_0_100%] group min-w-0 sm:flex-[0_0_50%]"
                   style={{
                     userSelect: "none",
                     WebkitUserSelect: "none",
@@ -185,13 +184,23 @@ export default function HightlightSec() {
 
 const CardContent = ({ data }: { data: any }) => (
   <div className="border-orange border-4 bg-gradient-to-b from-orange via-orange-800/20 to-orange-900/20 backdrop-blur-md rounded-2xl">
-    <div className="relative overflow-hidden transition-all duration-300 2xl:p-4 p-5 2xl:h-[32rem] lg:h-[28rem] h-96 shadow-sm ">
-      <img src={data.imgSrc} alt={data.title} className="absolute top-0 w-full left-0 h-full object-cover rounded-xl" />
+    <div className="relative overflow-hidden transition-all duration-300 2xl:p-4 p-5 2xl:h-[32rem] h-[28rem] shadow-sm ">
+      <img
+        src={data.imgSrc}
+        alt={data.title}
+        className="absolute top-0 w-full left-0 h-full object-cover rounded-xl brightness-80 group-hover:brightness-100"
+      />
+      <ProgressiveBlur
+        className="pointer-events-none absolute -bottom-0 left-0 h-[30%] w-full rounded-lg"
+        blurIntensity={4}
+      />
       <article className="relative z-10 flex flex-col justify-between h-full">
-      <h1 className="2xl:text-3xl lg:text-3xl text-2xl font-bold text-neutral-200">{data.title}</h1>
-      <p className="2xl:text-lg lg:text-base text-sm font-medium leading-[120%] text-neutral-200 mt-2">
-        {data.des}
-      </p>
+        <h1 className="2xl:text-3xl lg:text-3xl text-2xl text-neutral-200">
+          {data.title}
+        </h1>
+        <p className="2xl:text-lg lg:text-base text-sm leading-[120%] text-white/70 group-hover:text-white mt-2">
+          {data.des}
+        </p>
       </article>
 
       {/* <button className="w-16 h-16 opacity-0 group-hover:opacity-100 -left-10 group-hover:left-0 transition-all duration-500 ease-in-out grid place-content-center">

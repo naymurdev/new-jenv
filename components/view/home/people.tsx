@@ -180,7 +180,6 @@ function People() {
                   <p className="mt-4 text-center">
                     {member.description[0]}
                     {member.memberName === "Naymur Rahman Ripon" && member.description[1]}
-                    {member.memberName === "Naymur Rahman Ripon" && member.description[2]}
                   </p>
                   <p className="mt-2 text-center">
                     {member.memberName === "Naymur Rahman Ripon" && member.description[2]}

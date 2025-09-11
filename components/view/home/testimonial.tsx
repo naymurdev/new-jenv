@@ -155,6 +155,10 @@ function Testimonial() {
         >
          Proof in Action
         </motion.h1>
+        <motion.p className="text-lg text-white max-w-md mx-auto pt-2 text-center">
+          Forget the buzzwords. Here’s what actual clients say about working
+          with JENV
+        </motion.p>
       </article>
 
       <div className="my-10 border-t-2 border-orange grid grid-cols-2 text-left text-white">

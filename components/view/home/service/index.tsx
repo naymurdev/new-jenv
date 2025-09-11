@@ -9,32 +9,32 @@ const services = [
   {
     id: "01",
     name: "Strategy Sprint",
-    icon: () => <img src="/strategy-icon.png" alt="strategy" />,
+    icon: () => <img src="/strategy-icon.png" alt="strategy" className="w-full h-64 object-contain brightness-90" />,
     description:
-      "Cut through the noise. We map your idea, giving you a plan that’s  buildable",
+      "Forget the post-it notes. We cut through the noise and hand you a plan that won’t collapse the second code touches it.",
     image: "/placeholder.svg?height=200&width=280",
   },
   {
     id: "02",
     name: "Zero-to-One Build",
-    icon: () => <img src="/zero-to-one-build2.png" alt="strategy" />,
+    icon: () => <img src="/zero-to-one-build2.png" alt="strategy" className="w-full h-64 object-contain brightness-90" />,
     description:
-      "We design & engineer the MVP in parallel so you get a market-ready product fast",
+      "Designers and engineers, side by side, moving fast. You’ll get a market-ready product before most teams finish “alignment workshops.”",
     image: "/placeholder.svg?height=200&width=280",
   },
   {
     id: "03",
     name: "Smart Integrations",
-    icon: () => <img src="/integrations.png" alt="strategy" />,
+    icon: () => <img src="/integrations.png" alt="strategy" className="w-full h-64 object-contain brightness-90" />,
     description:
-      "We plug in what matters — payments, automations, AI where it’s useful",
+      "Payments? Automations? AI that actually earns its keep? We wire it in without the shiny nonsense no one uses.",
     image: "/placeholder.svg?height=200&width=280",
   },
   {
     id: "04",
     name: "Pilot & Learn",
-    icon: () => <img src="/learn2.png" alt="strategy" />,
-    description: "Launch to real users, gather signals, and refine",
+    icon: () => <img src="/learn2.png" alt="strategy" className="w-full h-64 object-contain brightness-90" />,
+    description: "Launch. Break it. Fix it. Repeat. That’s how you turn half-baked ideas into real businesses.",
     image: "/placeholder.svg?height=200&width=280",
   },
 ];
@@ -47,21 +47,16 @@ function Service() {
           Service
         </span>
         <h1 className="xl:text-8xl md:text-7xl sm:text-6xl text-4xl text-transparent bg-clip-text bg-gradient-to-b from-neutral-100 via-neutral-50 to-neutral-500 text-center">
-          How we help you
+        What We Actually Do
         </h1>
       </article>
       <div className="px-10 ">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 py-20">
           {services.map((service) => (
-            <div key={service.id} className="overflow-hidden border-l border-neutral-500 first:border-none p-4">
+            <div key={service.id} className="border-l border-neutral-500 first:border-none p-4">
               <div className="relative aspect-[4/3]">
-                <div className="absolute top-4 left-4 z-10">
-                  <span className="text-gray-200 text-lg font-medium">
-                    {service.id}
-                  </span>
-                </div>
+              {/* <div className="absolute top-10 left-0 h-50 w-[70%] rounded-2xl bg-gradient-to-b from-orange via-orange-800/20 to-orange-900/20 -z-10 blur-xl"></div> */}
                 <service.icon/>
-             
               </div>
               <div className="text-left">
                 <h1 className="text-white text-4xl">{service.name}</h1>

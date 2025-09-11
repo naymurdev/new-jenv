@@ -4,11 +4,13 @@ import BlackWhiteBlobs from "@/components/ui/black-white-blobs";
 import VerticalBarsNoise from "@/components/ui/verticle-bars";
 import { ArrowBigRight, ArrowUpRight } from "lucide-react";
 import React, { useEffect, useState } from "react";
-
+import {motion} from "motion/react"
 function Footer() {
   return (
     <>
-      <footer className="2xl:container 2xl:px-0 px-10 h-full relative z-10 mx-auto pb-5  border-t border-neutral-500 ">
+      <footer className="relative pb-10 overflow-hidden">
+        <div className="2xl:container 2xl:px-0 px-10 h-full relative z-10 mx-auto pb-5"> 
+
         <svg
           className="absolute -top-[999px] -left-[999px] w-0 h-0"
           fill="none"
@@ -110,6 +112,16 @@ function Footer() {
             ]}
           /> */}
         </figure>
+        </div>
+
+        {/* <motion.img
+                  // initial={{ opacity: 0, y: -20, filter: "blur(10px)" }}
+                  // animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  // transition={{ duration: 1, delay: 1 }}
+                  src="/rotate-bg.png"
+                  alt=""
+                  className="absolute 2xl:-top-0 left-0 w-full rotate-180 -z-10"
+                /> */}
       </footer>
     </>
   );

@@ -12,7 +12,7 @@ import BuildingIconLink from "@/components/icons/building";
 import TargetIconLink from "@/components/icons/target";
 import HandshakeIconLink from "@/components/icons/handshake";
 import { AnimatePresence, motion } from "motion/react";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 const SpeechRecognitionApi =
   typeof window !== "undefined"
@@ -20,21 +20,16 @@ const SpeechRecognitionApi =
       (window as any)?.webkitSpeechRecognition ||
       null
     : null;
-// Skeleton Text Loader Component
 const SkeletonTextLoader = () => {
   return (
     <div className="space-y-3 animate-pulse">
       <div className="flex items-center gap-2">
-        {/* <div className="w-2 h-2 bg-gray-400 rounded-full" /> */}
-        <figure className="w-8 h-8 p-0.5 rounded-full bg-zinc-50 border">
-          <img src="/logo.png" alt="logo" className="w-full h-full" />
-        </figure>
         <span className="text-base font-medium text-gray-700">
-          JENV.AI is thinking...
+          JENNY is thinking...
         </span>
       </div>
       <div className="space-y-2 mt-2">
-        {[85, 92].map((width, idx) => (
+        {[85, 90].map((width, idx) => (
           <div
             key={idx}
             className="h-4 rounded bg-gradient-to-r py-3 my-3 from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-[shimmer_1.6s_ease-in-out_infinite]"
@@ -61,7 +56,8 @@ export default function FaqQueryAgent() {
   const [recognition, setRecognition] = useState<any | null>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
-
+  const endRef = useRef<HTMLDivElement>(null);
+  const firstRender = useRef(true);
   const suggestions = [
     {
       icon: BuildingIconLink,
@@ -79,65 +75,43 @@ export default function FaqQueryAgent() {
       query: "What is the current project you guys working on?",
     },
   ];
-  // Add this new useEffect after the existing speech recognition useEffect
-  useEffect(() => {
-    // Auto-scroll to bottom when new messages are added
-    if (scrollAreaRef.current) {
-      const scrollContainer = scrollAreaRef.current.querySelector(
-        "[data-radix-scroll-area-viewport]"
-      );
-      if (scrollContainer) {
-        scrollContainer.scrollTop = scrollContainer.scrollHeight;
-      }
+  function scrollToBottom(smooth = true) {
+    const viewport = scrollAreaRef.current?.querySelector(
+      "[data-radix-scroll-area-viewport]"
+    ) as HTMLElement | null;
+
+    if (viewport) {
+      viewport.scrollTo({
+        top: viewport.scrollHeight,
+        behavior: smooth ? "smooth" : "auto",
+      });
     }
-  }, [chatMessages, loading]);
+  }
+
+  // disable browser's own scroll restore (prevents jumping on refresh)
   useEffect(() => {
-    if (!SpeechRecognitionApi) return;
-
-    const recognitionInstance = new SpeechRecognitionApi();
-    recognitionInstance.continuous = true;
-    recognitionInstance.interimResults = true;
-    recognitionInstance.lang = "en-US";
-
-    recognitionInstance.onresult = (event: any) => {
-      let finalTranscript = "";
-      let interimTranscript = "";
-
-      for (let i = event.resultIndex; i < event.results.length; i++) {
-        const transcript = event.results[i][0].transcript;
-        if (event.results[i].isFinal) {
-          finalTranscript += transcript;
-        } else {
-          interimTranscript += transcript;
-        }
-      }
-      setQuery(finalTranscript + interimTranscript);
-    };
-
-    recognitionInstance.onend = () => setIsListening(false);
-    recognitionInstance.onerror = () => setIsListening(false);
-
-    setRecognition(recognitionInstance);
+    if ("scrollRestoration" in history) {
+      const prev = history.scrollRestoration;
+      history.scrollRestoration = "manual";
+      return () => {
+        history.scrollRestoration = prev;
+      };
+    }
   }, []);
+
+  // only auto-scroll after first render (i.e., when messages actually change)
+  useEffect(() => {
+    if (firstRender.current) {
+      firstRender.current = false;
+      return; // don't scroll on initial mount
+    }
+    const id = requestAnimationFrame(() => scrollToBottom(!loading));
+    return () => cancelAnimationFrame(id);
+  }, [chatMessages, loading]);
 
   const handleSuggestionClick = (suggestionQuery: string) => {
     setQuery(suggestionQuery + " ");
     textareaRef.current?.focus();
-  };
-
-  const handleVoiceToggle = () => {
-    if (!SpeechRecognitionApi || !recognition) {
-      alert("Speech recognition is not supported in your browser");
-      return;
-    }
-
-    if (isListening) {
-      recognition.stop();
-      setIsListening(false);
-    } else {
-      recognition.start();
-      setIsListening(true);
-    }
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -194,24 +168,39 @@ export default function FaqQueryAgent() {
   };
 
   return (
-    <section className="pt-32 pb-20 flex justify-center px-4 sm:px-6 lg:px-8">
-      <div className="p-8 rounded-3xl border border-neutral-900 w-full max-w-4xl sm:p-12 relative overflow-hidden">
-
+    <section className="pt-32 pb-20 flex justify-center px-4 sm:px-6 lg:px-8 relative">
+      <motion.img
+        src="/rotate-bg.png"
+        alt=""
+        className="absolute 2xl:-bottom-96 left-0 w-full"
+        initial={{ opacity: 0, y: 16, filter: "blur(8px)" }}
+        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 1, delay: 1 }}
+      />
+      <div className="p-8 rounded-3xl w-full max-w-4xl sm:p-12 relative overflow-hidden">
         <div className="relative z-10">
           <div className="text-center mb-12">
             <h2 className="font-librecaslon text-4xl sm:text-5xl lg:text-6xl text-white mb-4 tracking-tight">
-              Frequently Asked Questions
+              The Anti-FAQ
             </h2>
-            <p className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
-              Get instant answers to your questions about our AI solutions
+            <p className="text-gray-300 text-lg max-w-xl mx-auto leading-relaxed">
+              No dropdowns. No walls of text. Just Jenny, our AI assistant,
+              answering whatever’s on your mind.
             </p>
           </div>
-          <div className="relative max-w-2xl mx-auto">
+          {/* <ul>
+            <li>What's Your Typeical Project Size</li>
+            <li>What's Your Typeical Project Size</li>
+            <li>What's Your Typeical Project Size</li>
+          </ul> */}
+          <div className="relative max-w-2xl mx-auto" data-lenis-prevent>
             <ScrollArea
               ref={scrollAreaRef}
+              data-lenis-prevent
               className={cn(
-                "w-full max-w-2xl mx-auto py-5 overflow-auto pr-2",
-                chatMessages.length > 0 ? "h-[26rem]" : "h-0"
+                "w-full max-w-2xl mx-auto py-5 pr-2",
+                chatMessages.length > 0 ? "h-[26rem]" : "h-auto"
               )}
             >
               <AnimatePresence>
@@ -223,7 +212,7 @@ export default function FaqQueryAgent() {
                     exit={{ opacity: 0, y: -20, scale: 0.95 }}
                     transition={{ duration: 0.3, ease: "easeOut" }}
                     className={`mb-4 flex ${
-                      message.type === "user" ? "justify-start" : "justify-end"
+                      message.type === "user" ? "justify-end" : "justify-start"
                     }`}
                   >
                     {message.type === "user" ? (
@@ -237,15 +226,8 @@ export default function FaqQueryAgent() {
                         <Card className="shadow-none border border-neutral-700 gap-2 bg-neutral-950 p-3 rounded-br-none">
                           <div className="flex items-center justify-between">
                             <div className="flex items-center gap-1">
-                              <figure className="w-8 h-8 p-0.5 rounded-full bg-white border">
-                                <img
-                                  src="/logo.png"
-                                  alt="logo"
-                                  className="w-full h-full"
-                                />
-                              </figure>
                               <CardTitle className="text-sm font-semibold text-gray-50">
-                                JENV.AI Response
+                                JENNY Response
                               </CardTitle>
                             </div>
                           </div>
@@ -283,9 +265,10 @@ export default function FaqQueryAgent() {
                   </motion.div>
                 )}
               </AnimatePresence>
+              <ScrollBar orientation="vertical" />
             </ScrollArea>
-            <div className="h-10 w-full bg-gradient-to-b from-background to-transparent absolute -top-0 left-0 z-20"></div>
-            <div className="h-10 w-full bg-gradient-to-t from-background to-transparent absolute -bottom-0 left-0 z-20"></div>
+            {/* <div className="h-10 w-full bg-gradient-to-b from-background to-transparent absolute -top-0 left-0 z-20"></div> */}
+            {/* <div className="h-10 w-full bg-gradient-to-t from-background to-transparent absolute -bottom-0 left-0 z-20"></div> */}
           </div>
 
           <div className="w-full space-y-2 mx-auto relative">
@@ -319,42 +302,14 @@ export default function FaqQueryAgent() {
                 </div>
 
                 <div className=" flex items-center gap-2">
-                  {isListening && (
-                    <div className="text-center">
-                      <div className="inline-flex items-center gap-2 px-4 h-10 bg-red-600 text-white rounded-full">
-                        <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-                        <span className="text-sm">Listening...</span>
-                      </div>
-                    </div>
-                  )}
                   <Button
-                    type="button"
+                    type="submit"
                     size="icon"
-                    variant="ghost"
-                    onClick={handleVoiceToggle}
-                    className={`h-10 w-10 rounded-lg cursor-pointer ${
-                      isListening
-                        ? "bg-red-600 hover:bg-red-700 text-white hover:text-white"
-                        : "text-zinc-600 hover:text-white hover:bg-zinc-800"
-                    }`}
+                    className="h-10 w-12 rounded-lg hover:shadow-sm shadow-none bg-zinc-50 border text-black hover:bg-zinc-50 cursor-pointer"
+                    disabled={!query.trim()}
                   >
-                    {isListening ? (
-                      <X className="h-4 w-4" />
-                    ) : (
-                      <Mic className="h-4 w-4" />
-                    )}
+                    <ArrowRight className="h-4 w-4" />
                   </Button>
-
-                  {!isListening && (
-                    <Button
-                      type="submit"
-                      size="icon"
-                      className="h-10 w-12 rounded-lg hover:shadow-sm shadow-none bg-zinc-50 border text-black hover:bg-zinc-50 cursor-pointer"
-                      disabled={!query.trim()}
-                    >
-                      <ArrowRight className="h-4 w-4" />
-                    </Button>
-                  )}
                 </div>
               </div>
             </form>

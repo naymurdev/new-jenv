@@ -29,7 +29,8 @@ function HeroSection() {
         >
           <article className="w-full relative text-white text-center pb-10 lg:px-0 sm:px-10 px-4">
             <h1 className="relative z-10 !leading-[80%] 2xl:text-8xl xl:text-8xl lg:text-7xl md:text-6xl text-5xl">
-              Your MVP doesn’t need another <br className="hidden md:block" /> meeting. It needs shipping.
+              Your MVP doesn’t need another <br className="hidden md:block" />{" "}
+              meeting. It needs shipping.
             </h1>
             <motion.p
               initial={{ filter: "blur(20px)", y: 0, opacity: 0 }}
@@ -45,9 +46,16 @@ function HeroSection() {
               blurIntensity="sm"
               glowIntensity="sm"
               shadowIntensity="sm"
-              className="w-fit text-2xl py-3 mx-auto mt-12 px-5 rounded-full relative flex items-center justify-center cursor-pointer text-white row-span-2"
+              className="w-[11.5rem] text-center text-2xl group py-3 mx-auto mt-12 px-5 rounded-full relative flex items-center justify-center cursor-pointer text-white row-span-2"
             >
-              <span className="relative z-10">Start building</span>
+              <span className="relative inline-flex overflow-hidden w-full text-center">
+                <div className="translate-y-0 text-center skew-y-0 transition duration-500 group-hover:-translate-y-[140%] group-hover:skew-y-12">
+                  Stop waiting
+                </div>
+                <div className="absolute translate-y-[130%] text-center skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0">
+                  Start building
+                </div>
+              </span>
             </LiquidGlassCard>
           </article>
 

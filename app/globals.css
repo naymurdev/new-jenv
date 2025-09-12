@@ -84,6 +84,17 @@
       background-position: 200%;
     }
   }
+  @keyframes bounce-dots {
+    0%,
+    100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+    }
+    50% {
+    transform: scale(1.2);
+    opacity: 1;
+    }
+    }
   @keyframes background-position-spin {
     0% {
       background-position: top center;
@@ -161,6 +172,7 @@ body {
   height: 100%;
   background: hsl(var(--background));
   position: relative;
+  overflow-x: hidden;
   /* &::before {
     content: "";
     position: fixed;

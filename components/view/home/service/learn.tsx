@@ -7,7 +7,6 @@ const LearnIcon = (props: React.SVGProps<SVGSVGElement>) => (
     viewBox="0 0 179 178"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className="w-full"
     {...props}
   >
     <path

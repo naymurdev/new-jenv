@@ -24,17 +24,17 @@ function HeroSection() {
     <>
       <ReactLenis root>
         <section
-          className="w-full rounded-md relative grid place-items-center h-screen"
+          className="w-full rounded-md relative grid place-items-center sm:h-screen sm:pt-0 pt-40"
           ref={containerRef}
         >
-          <article className="w-full relative text-white max-w-7xl mx-auto text-center pb-10">
-            <h1 className="relative z-10 !leading-[80%] xl:text-8xl md:text-7xl sm:text-6xl text-4xl">
-              Your MVP doesn’t need another meeting. It needs shipping.
+          <article className="w-full relative text-white text-center pb-10 lg:px-0 sm:px-10 px-4">
+            <h1 className="relative z-10 !leading-[80%] 2xl:text-8xl xl:text-8xl lg:text-7xl md:text-6xl text-5xl">
+              Your MVP doesn’t need another <br className="hidden md:block" /> meeting. It needs shipping.
             </h1>
             <motion.p
               initial={{ filter: "blur(20px)", y: 0, opacity: 0 }}
               animate={{ filter: "blur(0px)", y: 0, opacity: 1 }}
-              className="text-lg text-white max-w-3xl mx-auto pt-8"
+              className=" text-white xl:max-w-3xl md:max-w-xl max-w-md mx-auto pt-8 lg:text-lg md:text-base text-sm"
             >
               Agencies love endless calls, bloated decks, and six-month
               timelines. We don’t. JENV builds and ships real products in weeks
@@ -57,13 +57,13 @@ function HeroSection() {
             transition={{ duration: 1, delay: 1 }}
             src="/background.png"
             alt=""
-            className="absolute top-44 left-0 w-full -z-10 "
+            className="absolute md:top-44 sm:top-72 top-90 left-0 w-full -z-10"
           />
         </section>
         <Service />
         <WhyNotUs />
         <Projects />
-        <Testimonial />
+        {/* <Testimonial /> */}
         <Pricing />
         <People />
         <Faqs />

@@ -69,8 +69,9 @@ const teamPeople = [
     memberImage: TeamImage.joshua,
     role: "Consultant",
     description: [
-      "JJ is the kind of developer who doesn’t say much—but when he does, it’s probably a genius solution to a problem no one else even saw coming. A master of app development, he makes things work smoothly while the rest of us just nod and pretend to understand how he does it.",
-      "He’s reliable, skilled, and efficient… almost too efficient. We’re starting to think he might actually be an AI in disguise—never causing trouble, always delivering quality work… yet somehow still debugging his own ability to talk to a girl.",
+      "JJ is the kind of developer who doesn’t say much—but when he does, it’s probably a genius solution to a problem no one else even saw coming.",
+      "A master of app development, he makes things work smoothly while the rest of us just nod and pretend to understand how he does it.",
+      "He’s reliable, skilled, and efficient… almost too efficient. We’re starting to think he might actually be an AI in disguise—never causing trouble, always delivering quality work… yet somehow still debugging his own ability to talk to a girl.",
     ],
   },
 ];
@@ -102,10 +103,10 @@ function People() {
   return (
     <>
       <section
-        className="2xl:container max-w-6xl 2xl:px-0 px-10 h-full rounded-md relative z-10 mx-auto pb-5  "
+        className="2xl:max-w-7xl max-w-6xl 2xl:px-0 sm:px-10 px-4 h-full rounded-md relative z-10 mx-auto pb-5  "
         ref={scope}
       >
-        <div className="h-full py-16 text-white">
+        <div className="h-full md:py-16 pt-24 text-white">
           <Heading badge="Who Are We" title="The People You’ll Blame" description="We’re a small, senior team. No interns, no bloated middle management. Just builders who love shipping."/>
     
           <div className="grid xl:grid-cols-4 grid-cols-2 w-full pt-10 gap-5 ">
@@ -118,7 +119,7 @@ function People() {
                   // "hover:-rotate-0 hover:-translate-y-24 hover:z-10"
                 )}
               >
-                <div className="flex items-center cursor-pointer transition-all hover: justify-center 2xl:h-[25rem] h-80 rounded-lg bg-gradient-to-b from-orange via-[#f56632] to-[#fc6846]">
+                <div className="flex items-center cursor-pointer transition-all hover: justify-center 2xl:h-[25rem] xl:h-80 md:h-[28rem] sm:h-[22rem] h-56 rounded-lg bg-gradient-to-b from-orange via-[#f56632] to-[#fc6846]">
                   <figure className="relative h-full">
                     <motion.img
                       width={500}
@@ -175,8 +176,9 @@ function People() {
                     {member.description[0]}
                     {member.memberName === "Naymur Rahman Ripon" && member.description[1]}
                   </p>
-                  <p className="mt-2 text-center 2xl:text-base text-sm">
+                  <p className="mt-2 text-center 2xl:text-base text-sm md:block hidden">
                     {member.memberName === "Naymur Rahman Ripon" && member.description[2]}
+                    {member.memberName === "Joshua Jacob" && member.description[1]}
                   </p>
                 </div>
               </motion.div>

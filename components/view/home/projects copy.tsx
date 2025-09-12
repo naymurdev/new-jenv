@@ -68,7 +68,7 @@ const items = [
 function Projects() {
   return (
     <section
-      className="relative z-10 text-center 2xl:px-0 px-10 2xl:container max-w-6xl mx-auto py-32"
+      className="relative z-10 text-center 2xl:px-0 sm:px-10 px-4 2xl:max-w-7xl max-w-6xl mx-auto py-32"
       drawer-wrapper=""
     >
       <article className="space-y-6">

@@ -23,7 +23,7 @@ const items = [
     tags: ["Sunrise", "Mountains", "Golden", "Scenic", "Inspiring"],
     technology: ["React", "Next.js", "Tailwind CSS", "Framer Motion"],
     websiteUrl: "www.ui-layouts.com",
-    className: "col-span-4 h-80", // Top left
+    className: "xl:col-span-4 sm:col-span-6 col-span-12", // Top left
   },
   {
     id: 2,
@@ -36,7 +36,7 @@ monitoring and analytics.`,
     tags: ["Misty", "Path", "Mysterious", "Serene", "Rugged"],
     technology: ["React", "Next.js", "Tailwind CSS", "Framer Motion"],
     websiteUrl: "www.ui-layouts.com",
-    className: "col-span-5 h-80", // Top middle (taller)
+    className: "xl:col-span-5 sm:col-span-6 col-span-12 ", // Top middle (taller)
   },
   {
     id: 3,
@@ -49,7 +49,7 @@ clinic interface.`,
     tags: ["Pathway", "Adventure", "Peaks", "Challenging", "Breathtaking"],
     technology: ["React", "Next.js", "Tailwind CSS", "Framer Motion"],
     websiteUrl: "www.ui-layouts.com",
-    className: "col-span-3 h-80", // Top right
+    className: "xl:col-span-3 sm:col-span-6 col-span-12", // Top right
   },
   {
     id: 4,
@@ -60,7 +60,7 @@ clinic interface.`,
     tags: ["Sunrise", "Mountains", "Golden", "Scenic", "Inspiring"],
     technology: ["React", "Next.js", "Tailwind CSS", "Framer Motion"],
     websiteUrl: "www.ui-layouts.com",
-    className: "col-span-5 h-80", // Middle left (with gap)
+    className: "xl:col-span-5 sm:col-span-6 col-span-12", // Middle left (with gap)
   },
   {
     id: 5,
@@ -70,7 +70,7 @@ clinic interface.`,
     tags: ["Misty", "Path", "Mysterious", "Serene", "Rugged"],
     technology: ["React", "Next.js", "Tailwind CSS", "Framer Motion"],
     websiteUrl: "www.ui-layouts.com",
-    className: "col-span-4 h-80", // Middle right (with gap)
+    className: "xl:col-span-4 sm:col-span-6 col-span-12", // Middle right (with gap)
   },
   {
     id: 6,
@@ -80,21 +80,21 @@ clinic interface.`,
     tags: ["Pathway", "Adventure", "Peaks", "Challenging", "Breathtaking"],
     technology: ["React", "Next.js", "Tailwind CSS", "Framer Motion"],
     websiteUrl: "https://www.waverally.org",
-    className: "col-span-3 h-80", // Bottom center (with gaps on sides)
+    className: "xl:col-span-3 sm:col-span-6 col-span-12", // Bottom center (with gaps on sides)
   },
 ];
 function Projects() {
   return (
-    <div className="relative ">
+    <div className="relative overflow-x-hidden ">
       <motion.img
         // initial={{ opacity: 0, y: -20, filter: "blur(10px)" }}
         // animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         // transition={{ duration: 1, delay: 1 }}
         src="/rotate-bg.png"
         alt=""
-        className="absolute 2xl:top-32 left-0 w-full rotate-180 skew-12 scale-110 -z-10"
+        className="absolute 2xl:top-32 md:top-16 top-32 left-0 w-full rotate-180 skew-12 scale-110 -z-10"
       />
-      <section className="relative z-10 text-center 2xl:px-0 px-10 2xl:container max-w-6xl mx-auto py-32">
+      <section className="relative z-10 text-center 2xl:px-0 sm:px-10 px-4 2xl:max-w-7xl max-w-6xl mx-auto md:py-32 pt-32">
         <Heading
           badge="Our Work"
           title="Proof We Don’t Just Talk"
@@ -102,7 +102,7 @@ function Projects() {
             real builds solving real problems."
         />
 
-        <div className="grid grid-cols-12 gap-4 items-end py-8 ">
+        <div className="grid grid-cols-12 gap-4 items-end py-8">
           {items.map((item, i) => {
             return (
               <Dialog
@@ -119,7 +119,7 @@ function Projects() {
                     borderRadius: "12px",
                   }}
                   className={cn(
-                    "flex w-full flex-col overflow-hidden  border border-neutral-700  bg-black hover:bg-neutral-900",
+                    "flex w-full flex-col overflow-hidden  border border-neutral-700  bg-black hover:bg-neutral-900 2xl:h-80 xl:h-72 lg:h-80 md:h-72 sm:h-60 h-72",
                     item.className
                   )}
                 >
@@ -145,16 +145,16 @@ function Projects() {
                     style={{
                       borderRadius: "24px",
                     }}
-                    className="relative p-4 flex mx-auto bg-black lg:w-[62rem] w-[80%] h-[55vh]"
+                    className="relative md:p-4 flex md:flex-row items-center justify-end flex-col mx-auto bg-black xl:w-[62rem]  sm:w-[85%] w-[95%] 2xl:h-[55vh] md:h-[60vh] h-[95vh]"
                   >
-                    <div className="h-full w-[55%] p-4 shrink-0">
+                    <div className="md:h-full h-full flex-1 md:w-[55%] w-full p-4 shrink-0">
                       <DialogImage
                         src={item.url}
                         alt={item.title}
                         className="object-cover h-full w-full rounded-2xl"
                       />
                     </div>
-                    <div className="p-4 mt-auto">
+                    <div className="p-4 flex-1 md:h-fit mt-auto h-full">
                       <h1 className="2xl:text-5xl text-4xl text-zinc-50">
                         {item.title}
                       </h1>

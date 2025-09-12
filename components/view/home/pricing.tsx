@@ -10,26 +10,26 @@ function Pricing() {
     "stroke-white [vector-effect:non-scaling-stroke] [stroke-dasharray:360] [stroke-dashoffset:360] transition-none group-hover:[stroke-dashoffset:0] group-hover:transition-[stroke-dashoffset] group-hover:duration-[2000ms] group-hover:ease-in-out";
 
   return (
-    <div className="relative">
+    <div className="relative overflow-x-hidden">
       <motion.img
         // initial={{ opacity: 0, y: -20, filter: "blur(10px)" }}
         // animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         // transition={{ duration: 1, delay: 1 }}
         src="/rotate-bg.png"
         alt=""
-        className="absolute 2xl:top-32 left-0 w-full rotate-180 skew-12 scale-110 -z-10"
+        className="absolute 2xl:top-32 md:top-16 top-44 left-0 w-full rotate-180 skew-12 scale-110 -z-10"
       />
-      <section className="relative z-10 text-center 2xl:px-0 px-10 2xl:container max-w-6xl mx-auto py-32">
+      <section className="relative z-10 text-center 2xl:px-0 sm:px-10 px-4 2xl:max-w-7xl max-w-6xl mx-auto md:py-32 pt-28">
         <Heading
           badge="Pricing"
           title="Stop Guessing. Here’s the Price."
           description="Transparent pricing. No hidden fees. Just the cost of getting your idea out of your head and into the world."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-10 text-white 2xl:max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 xl:gap-8 gap-4 py-10 text-white w-full">
           {/* Card 1 */}
-          <div className="bg-neutral-950 p-4 rounded-3xl text-white flex flex-col gap-4 justify-between border border-white/10">
-            <div className="group bg-background border border-neutral-800 p-6 rounded-2xl min-h-48 flex flex-col justify-between">
+          <div className="bg-neutral-950 group p-4 rounded-3xl text-white flex flex-col gap-4 justify-between border border-white/10">
+            <div className="bg-background border border-neutral-800 p-6 rounded-2xl min-h-48 flex flex-col justify-between">
               <div className="w-full flex justify-between">
                 <svg
                   width="76"
@@ -98,8 +98,8 @@ function Pricing() {
           </div>
 
           {/* Card 2 */}
-          <div className="bg-orange p-4 rounded-3xl flex flex-col gap-4 justify-between border border-white/10">
-            <div className="group bg-orange-700 p-6 rounded-2xl min-h-48 flex flex-col justify-between ">
+          <div className="bg-orange group p-4 rounded-3xl flex flex-col gap-4 justify-between border border-white/10">
+            <div className="bg-orange-700 p-6 rounded-2xl min-h-48 flex flex-col justify-between ">
               <div className="w-full flex justify-between">
                 <svg
                   width="93"
@@ -247,8 +247,8 @@ function Pricing() {
           </div>
 
           {/* Card 3 */}
-          <div className="bg-neutral-950 p-4 rounded-3xl text-white flex flex-col gap-4 justify-between border border-white/10">
-            <div className="group bg-background border border-neutral-800 p-6 rounded-2xl min-h-48 flex flex-col justify-between">
+          <div className="bg-neutral-950 group p-4 rounded-3xl text-white flex flex-col gap-4 justify-between border border-white/10">
+            <div className="bg-background border border-neutral-800 p-6 rounded-2xl min-h-48 flex flex-col justify-between">
               <div className="w-full flex justify-between">
                 <svg
                   width="77"

@@ -23,25 +23,12 @@ import HandshakeIconLink from "@/components/icons/handshake";
 import { AnimatePresence, motion } from "motion/react";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { LiquidGlassCard } from "@/components/ui/liquid-glass";
-
+import { Loader } from "@/components/ui/loader";
 
 const SkeletonTextLoader = () => {
   return (
-    <div className="space-y-3 animate-pulse">
-      <div className="flex items-center gap-2">
-        <span className="text-base font-medium text-gray-400">
-          Jenny is thinking...
-        </span>
-      </div>
-      <div className="space-y-2 mt-2">
-        {[85, 90].map((width, idx) => (
-          <div
-            key={idx}
-            className="h-4 rounded bg-gradient-to-r py-3 my-3 from-neutral-700 via-neutral-700 to-neutral-800 bg-[length:200%_100%] animate-[shimmer_1.6s_ease-in-out_infinite]"
-            style={{ width: `${width}%` }}
-          />
-        ))}
-      </div>
+    <div className="space-y-3 px-2">
+      <Loader variant={"dots"} />
     </div>
   );
 };
@@ -67,7 +54,7 @@ export default function FaqQueryAgent() {
     {
       icon: BuildingIconLink,
       text: "Company",
-      query: "what your company does?",
+      query: "What your company does?",
     },
     {
       icon: HandshakeIconLink,
@@ -174,28 +161,20 @@ export default function FaqQueryAgent() {
 
   return (
     <section className="pt-32 pb-20 flex justify-center px-4 sm:px-6 lg:px-8 relative">
-      <motion.img
-        src="/rotate-bg.png"
-        alt=""
-        className="absolute xl:-bottom-96 left-0 w-full"
-        initial={{ opacity: 0, y: 16, filter: "blur(8px)" }}
-        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 1, delay: 1 }}
-      />
+ 
       <LiquidGlassCard
         draggable={false}
         blurIntensity="sm"
         glowIntensity="sm"
         shadowIntensity="sm"
-        className="p-8 rounded-3xl w-full max-w-4xl sm:p-12 relative overflow-hidden"
+        className="sm:p-8 p-4 rounded-3xl w-full max-w-4xl md:p-12 relative overflow-hidden"
       >
         <div className="relative z-10">
           <div className="text-center mb-12">
             <h2 className="font-librecaslon text-4xl sm:text-5xl lg:text-6xl text-white mb-4 tracking-tight">
               The Anti-FAQ
             </h2>
-            <p className="text-gray-300 text-lg max-w-xl mx-auto leading-relaxed">
+            <p className="text-gray-300 sm:text-lg text-sm max-w-xl mx-auto leading-relaxed">
               No dropdowns. No walls of text. Just Jenny, our AI assistant,
               answering whatever’s on your mind.
             </p>
@@ -214,10 +193,10 @@ export default function FaqQueryAgent() {
                 {chatMessages.map((message) => (
                   <motion.div
                     key={message.id}
-                    initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: -20, scale: 0.95 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    // initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                    // animate={{ opacity: 1, y: 0, scale: 1 }}
+                    // exit={{ opacity: 0, y: -20, scale: 0.95 }}
+                    // transition={{ duration: 0.3, ease: "easeOut" }}
                     className={`mb-4 flex ${
                       message.type === "user" ? "justify-end" : "justify-start"
                     }`}
@@ -256,18 +235,14 @@ export default function FaqQueryAgent() {
               <AnimatePresence>
                 {loading && (
                   <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.3 }}
-                    className="mb-2 flex justify-end"
+                    // initial={{ opacity: 0, y: 20 }}
+                    // animate={{ opacity: 1, y: 0 }}
+                    // exit={{ opacity: 0, y: -20 }}
+                    // transition={{ duration: 0.3 }}
+                    className="mb-2 flex justify-start"
                   >
-                    <div className="w-[24rem]">
-                      <Card className="shadow-none border-none bg-neutral-800/30 backdrop-blur-md  border-2 border-neutral-400 p-0">
-                        <CardContent className="p-5">
-                          <SkeletonTextLoader />
-                        </CardContent>
-                      </Card>
+                    <div className="sm:w-[24rem]">
+                      <SkeletonTextLoader />
                     </div>
                   </motion.div>
                 )}
@@ -280,12 +255,12 @@ export default function FaqQueryAgent() {
             {/* <div className="h-10 w-full bg-gradient-to-t from-background to-transparent absolute -bottom-0 left-0 z-20"></div> */}
           </div>
           {chatMessages?.length < 1 && (
-            <div className="gap-2 justify-center text-white pb-4">
+            <div className="gap-2 justify-center text-neutral-200 pb-4">
               {suggestions.map((suggestion, index) => (
                 <>
                   <div
                     key={index}
-                    className="group p-2 w-[70%] flex items-center relative justify-between cursor-pointer transition-colors border-b "
+                    className="group p-2 md:w-[70%] w-full flex items-center md:text-base text-sm relative justify-between cursor-pointer transition-colors border-b border-neutral-200"
                     onClick={() => handleSuggestionClick(suggestion.query)}
                   >
                     <span className="relative inline-flex overflow-hidden w-full">
@@ -317,7 +292,7 @@ export default function FaqQueryAgent() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 onKeyPress={handleKeyPress}
-                className="w-full min-h-14 px-2 text-white placeholder:text-neutral-200 text-lg outline-0 rounded-xl focus:ring-0 focus:border-transparent resize-none"
+                className="w-full min-h-12 px-2 sm:text-base md:text-lg text-sm text-white placeholder:text-neutral-200 outline-0 rounded-xl focus:ring-0 focus:border-transparent resize-none"
                 rows={1}
               />
               <div className="flex items-end gap-3 justify-end">
@@ -336,6 +311,15 @@ export default function FaqQueryAgent() {
           </div>
         </div>
       </LiquidGlassCard>
+      <motion.img
+        src="/rotate-bg.png"
+        alt=""
+        className="absolute xl:-bottom-96 lg:-bottom-64 md:-bottom-44 sm:-bottom-24 -bottom-4 left-0 w-full -z-10"
+        initial={{ opacity: 0, y: 16, filter: "blur(8px)" }}
+        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 1, delay: 1 }}
+      />
     </section>
   );
 }

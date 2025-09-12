@@ -17,12 +17,12 @@ import Heading from "@/components/common/heading";
 const items = [
   {
     id: 1,
-    url: "https://images.unsplash.com/photo-1642132652859-3ef5a1048fd1?q=80&w=1760&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    url: "./sell-my-plot.png",
     title: "SellMyPlot",
     description: "Built a full-stack real estate platform with secure login, verified property credentials, escrow-ready payment gateway, and an audit trail across every step.",
     tags: ["Sunrise", "Mountains", "Golden", "Scenic", "Inspiring"],
     technology: ["React", "Next.js", "Tailwind CSS", "Framer Motion"],
-    websiteUrl: "www.ui-layouts.com",
+    websiteUrl: "https://sellmyplot.in",
     className: "xl:col-span-4 sm:col-span-6 col-span-12", // Top left
   },
   {
@@ -131,7 +131,7 @@ function Projects() {
                   />
                   <div className="flex flex-grow flex-row items-end justify-between p-3 absolute bottom-0 w-full">
                     <div>
-                      <DialogTitle className="text-xl dark:text-zinc-50">
+                      <DialogTitle className="text-2xl text-zinc-50 font-medium">
                         {item.title}
                       </DialogTitle>
                     </div>

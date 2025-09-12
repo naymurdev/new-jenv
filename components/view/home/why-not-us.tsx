@@ -175,25 +175,24 @@ export default function WhyNotUs() {
 }
 
 const CardContent = ({ data }: { data: any }) => (
-  <div className="bg-gradient-to-b from-orange via-orange-800/20 to-orange-900/20 backdrop-blur-md rounded-2xl">
-    <div className="relative overflow-hidden transition-all duration-300 2xl:p-4 p-5 2xl:h-[32rem] h-[28rem] shadow-sm ">
+    <div className="relative overflow-hidden transition-all duration-300 2xl:p-4 p-5 2xl:h-[32rem] h-[28rem] shadow-sm rounded-2xl border border-neutral-700">
+    <div className="absolute top-0 left-0 z-10 bg-gradient-to-b from-background via-orange-800/0 to-orange-900/0 rounded-2xl w-full h-full"/>
       <img
         src={data.imgSrc}
         alt={data.title}
-        className="absolute top-0 w-full left-0 h-full object-cover rounded-xl brightness-80 group-hover:brightness-100"
+        className="absolute top-16 rounded-xl w-full left-0 h-full object-cover brightness-80 group-hover:brightness-100 "
       />
       <ProgressiveBlur
-        className="pointer-events-none absolute -bottom-0 left-0 h-[30%] w-full rounded-lg"
+        className="pointer-events-none absolute rotate-180 -top-0 left-0 h-[30%] w-full rounded-lg"
         blurIntensity={4}
       />
-      <article className="relative z-10 flex flex-col justify-between h-full">
-        <h1 className="2xl:text-3xl lg:text-3xl text-2xl text-neutral-200">
+      <article className="relative z-10 flex flex-col h-full">
+        <h1 className="2xl:text-3xl lg:text-3xl text-2xl text-white">
           {data.title}
         </h1>
-        <p className="2xl:text-lg lg:text-base text-sm leading-[120%] text-white/70 group-hover:text-white mt-2">
+        <p className="2xl:text-base text-sm leading-[120%] text-white/70 group-hover:text-white mt-2">
           {data.des}
         </p>
       </article>
     </div>
-  </div>
 );

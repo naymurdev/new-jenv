@@ -2,11 +2,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 import { LiquidGlassCard } from "@/components/ui/liquid-glass";
-
 import { ReactLenis } from "lenis/react";
 import Service from "./service";
-import HowWeWork from "./how-we-work";
-import Testimonial from "./testimonial";
+;
 import People from "./people";
 import Faqs from "./faqs";
 import Pricing from "./pricing";
@@ -16,9 +14,6 @@ import WhyNotUs from "./why-not-us";
 
 function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
-
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <>
@@ -46,16 +41,14 @@ function HeroSection() {
               blurIntensity="sm"
               glowIntensity="sm"
               shadowIntensity="sm"
-              className="w-[11.5rem] text-center text-2xl group py-3 mx-auto mt-12 px-5 rounded-full relative flex items-center justify-center cursor-pointer text-white row-span-2"
+              className="w-[11.5rem] mt-6 text-center text-2xl group py-3 mx-auto rounded-full relative cursor-pointer overflow-hidden text-white row-span-2"
             >
-              <span className="relative inline-flex overflow-hidden w-full text-center">
-                <div className="translate-y-0 text-center skew-y-0 transition duration-500 group-hover:-translate-y-[140%] group-hover:skew-y-12">
+                <div className="translate-y-0 text-center skew-y-0 transition duration-500 group-hover:-translate-y-[180%] group-hover:skew-y-12">
                   Stop waiting
                 </div>
-                <div className="absolute translate-y-[130%] text-center skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0">
+                <div className="absolute translate-y-[150%] w-full left-0 text-center skew-y-12 transition duration-500 group-hover:-translate-y-8.5 group-hover:skew-y-0">
                   Start building
                 </div>
-              </span>
             </LiquidGlassCard>
           </article>
 

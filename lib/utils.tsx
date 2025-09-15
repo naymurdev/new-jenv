@@ -7,11 +7,11 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export const siteConfig = {
-  name: "Evlogia",
-  url: "https://www.evlogia.ai",
-  ogImage: "https://www.evlogia.ai/og.jpg",
+  name: "Jenv",
+  url: "https://www.jenv.tech",
+  ogImage: "https://www.jenv.tech/og.jpg",
   description:
-    "We are an AI-driven company creating intelligent solutions to empower businesses and individuals, from predictive analytics to automation.",
+    "Agencies love endless calls, bloated decks, and six-month timelines. We don’t. JENV builds and ships real products in weeks so your users can break them, not your budget.",
   links: {
     twitter: "https://twitter.com/naymur_dev",
     linkedin: "https://www.linkedin.com/in/naymur-rahman",

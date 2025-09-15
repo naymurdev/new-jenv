@@ -167,7 +167,7 @@ function Projects() {
                               >
                                 {tech} 
                               </span>
-                            );
+                            )
                           })}
                         </div>
                       <DialogDescription
@@ -205,7 +205,7 @@ function Projects() {
                             <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[115%] group-hover:skew-y-12">
                               View Project
                             </div>
-                            <div className="absolute translate-y-[120%] skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0">
+                            <div className="absolute translate-y-[150%] skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0">
                               {item.websiteUrl}
                             </div>
                           </span>

@@ -93,7 +93,22 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL(siteConfig.url),
   description: siteConfig.description,
-  keywords: ["ai company", "evlogia ai", "evlogia labs", "evlogia"],
+  keywords: [
+    "web development services",
+    "app development services",
+    "web and app developers",
+    "custom software development",
+    "frontend development",
+    "backend development",
+    "full-stack development",
+    "mobile app development",
+    "React developers",
+    "Next.js developers",
+    "Node.js developers",
+    "software development company",
+    "Jenv Tech",
+    "Jenv Tech developers"
+  ],
   authors: [
     {
       name: "naymur rahman",

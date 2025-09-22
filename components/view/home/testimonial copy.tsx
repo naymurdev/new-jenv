@@ -89,6 +89,7 @@ function Testimonial() {
             <div className="shrink-0 w-72 h-72 bg-neutral-800 rounded-xl">
               <Image
                 src={steps[0].image}
+                // @ts-ignore
                 alt={steps[0].clientName}
                 width={600}
                 height={600}

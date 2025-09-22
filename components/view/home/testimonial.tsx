@@ -1,175 +1,194 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { Phone } from "lucide-react";
-import { LiquidGlassCard } from "@/components/ui/liquid-glass";
-import { cn } from "@/lib/utils";
+import { MoveRight } from "lucide-react";
+import AnimatedBackground from "@/components/ui/animated-gradient";
 import Heading from "@/components/common/heading";
+import Image from "next/image";
 
-const steps = [
-  {
-    id: 1,
-    number: "01",
-    title: "Free Discovery Call",
-    description:
-      "Share your vision, get expert insights, and let's see if we're the right match. Zero commitment.",
-    icon: Phone,
-    image:
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=200&h=200&fit=crop",
-  },
-  {
-    id: 2,
-    number: "02",
-    title: "Strategy & Planning",
-    description:
-      "We analyze your business needs and create a comprehensive roadmap tailored to your goals and objectives.",
-    icon: Phone,
-    image:
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=200&h=200&fit=crop",
-  },
-  {
-    id: 3,
-    number: "03",
-    title: "Design & Development",
-    description:
-      "Our team brings your vision to life with cutting-edge design and robust development practices.",
-    icon: Phone,
-    image:
-      "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=200&h=200&fit=crop",
-  },
-  {
-    id: 4,
-    number: "04",
-    title: "Testing & Optimization",
-    description:
-      "Rigorous testing ensures everything works perfectly before launch, with continuous optimization.",
-    icon: Phone,
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=200&h=200&fit=crop",
-  },
-  {
-    id: 5,
-    number: "05",
-    title: "Launch & Support",
-    description:
-      "We launch your project and provide ongoing support to ensure continued success and growth.",
-    icon: Phone,
-    image:
-      "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=200&h=200&fit=crop",
-  },
-];
-
-function Testimonial() {
-  const [activeStep, setActiveStep] = useState(1); // Start with no active step
-
-
+export default function TestimonialSection() {
   return (
     <section className="relative z-10 text-center 2xl:px-0 sm:px-10 px-4 2xl:max-w-7xl max-w-6xl mx-auto py-32">
-      <Heading badge="Success Stories" title="People Who Actually Paid Us" description="Forget the buzzwords. Here’s what actual clients say about working with JENV"/>
-      {/* <article>
-        <motion.span
-          className="text-center block w-fit mx-auto bg-orange-600 text-white px-5 py-2 rounded-full"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          Success Stories
-        </motion.span>
-
-        <motion.h1
-          className="xl:text-8xl md:text-7xl sm:text-6xl text-4xl text-transparent bg-clip-text bg-gradient-to-b from-neutral-100 via-neutral-50 to-neutral-500 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-        People Who Actually Paid Us
-        </motion.h1>
-        <motion.p className="text-lg text-white max-w-2xl mx-auto pt-2 text-center">
-          Forget the buzzwords. Here’s what actual clients say about working
-          with JENV
-        </motion.p>
-      </article> */}
-
-      <div className="my-10 border-t-2 border-orange grid grid-cols-2 text-left text-white">
-        <div className="grid grid-cols-6 border-r-2 border-orange">
-          <div className="col-span-6 flex gap-4 p-5 border-b-2 border-orange">
-            <article>
-              <span className="text-xl font-semibold">Someone</span>
-              <p className="py-2">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Molestias voluptatum, laboriosam iure voluptatibus atque
-                necessitatibus nemo dolore eum ea hic deserunt
-              </p>
-            </article>
-            <div className="shrink-0 w-72 h-72 bg-neutral-800 rounded-xl"></div>
-          </div>
-          <div className="col-span-3 border-r-2 border-orange p-4">
-            <div className="shrink-0 w-full h-72 bg-neutral-800 rounded-xl"></div>
-            <article className="pt-5">
-              <span className="text-xl font-semibold">Someone</span>
-              <p className="py-2">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Molestias voluptatum
-              </p>
-            </article>
-          </div>
-          <div className="col-span-3 p-4">
-            <div className="shrink-0 w-full h-72 bg-neutral-800 rounded-xl"></div>
-            <article className="pt-5">
-              <span className="text-xl font-semibold">Someone</span>
-              <p className="py-2">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Molestias voluptatum
-              </p>
-
-              <p className="pt-8">
-                something about JENV some something about JENV somesomething
-                about JENV some something about JENV some
-              </p>
-              <p className="pt-2">
-                something about JENV some something about JENV somesomething
-                about JENV some something about JENV some
-              </p>
-            </article>
-          </div>
-        </div>
-        <div>
-          <div className="p-4">
-            <article className="pt-5">
-              <span className="text-xl font-semibold">Someone</span>
-              <p className="py-2">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Molestias voluptatum
-              </p>
-
-              <p className="pt-8">
-                something about JENV some something about JENV somesomething
-                about JENV some something about JENV some
-              </p>
-              <p className="pt-2">
-                something about JENV some something about JENV somesomething
-                about JENV some something about JENV some
-              </p>
-            </article>
-            <div className="shrink-0 w-full h-72 bg-neutral-800 rounded-xl mt-5"></div>
-          </div>
-          <div className="p-4 border-t-2 border-orange grid grid-cols-2 gap-8">
-            <div className="shrink-0 w-full h-72 bg-neutral-800 rounded-xl mt-5"></div>
-            <article className="pt-5 flex flex-col justify-between">
-              <div>
-                <span className="text-xl font-semibold">Someone</span>
-                <p className="py-2">Lorem ipsum dolor sit amet consectetur.</p>
+      <Heading
+        badge="Success Stories"
+        title="People Who Actually Paid Us"
+        description="Forget the buzzwords. Here’s what real clients have to say about their experience working with JENV—the wins, the process, and the results that truly matter."
+      />
+      <div className="xl:px-0 px-4 mt-10">
+        <div className="md:grid grid-cols-1 md:grid-cols-12 border border-neutral-900 text-left">
+          {/* 1st */}
+          <div className="col-span-6 bg-neutral-950 p-8 rounded-l-xl">
+            <p className="text-neutral-300 mb-8 leading-[150%]">
+              The team did an amazing job building a product website for my
+              brand, which really elevated how we present ourselves to
+              customers.
+              <br />
+              Their
+              <span className="bg-orange-500/20 border px-1 border-orange-500">
+                support
+              </span>{" "}
+              on the tech side made the whole
+              <span className="bg-orange-500/20 border px-1 border-orange-500">
+                process smooth and stress-free.
+              </span>{" "}
+              I’ve been working with them for a few months now, and their work
+              has truly helped strengthen my brand.
+            </p>
+            <div className="border-t border-orange-900 pt-3 flex justify-between text-white items-center">
+              <div className="flex items-center gap-2">
+                <div className="h-14 w-14 rounded-full bg-emerald-500 flex items-center justify-center">
+                  <Image
+                    src="/koyal_kiran.jpg"
+                    alt="logo"
+                    width={100}
+                    height={100}
+                    className="w-full h-full rounded-full object-cover"
+                  />
+                  <span className="sr-only">Koyal Kiran</span>
+                </div>
+                <div>
+                  <p className="font-medium">Koyal Kiran</p>
+                  <p className="text-gray-300">CEO, Magniz</p>
+                </div>
               </div>
+              <div className="w-fit px-2 bg-neutral-900 gap-2 rounded-full flex items-center justify-center group">
+                <span className="text-lg group-hover:text-orange-500">
+                  Magniz
+                </span>
+                <MoveRight className="shrink-0 text-gray-400 group-hover:text-orange-500" />
+              </div>
+            </div>
+          </div>
 
-              <p className="pt-2">
-                something about JENV some something about JENV somesomething
-                about JENV some something about JENV some
+          {/* 2nd */}
+          <div className="col-span-6 bg-neutral-900 rounded-rt-lg p-8 text-white flex flex-col justify-between">
+            <p className="text-neutral-300 mb-8">
+              JENV’s web development expertise gave us unmatched flexibility in
+              creating digital experiences.{" "}
+              <span className="italic text-white">
+                No rigid templates, no limits.
+              </span>{" "}
+              Their modular approach helped us test ideas faster, iterate with
+              ease, and launch a custom platform in record time. They saved us
+              weeks of effort and made our site feel truly unique.
+            </p>
+            <div className="border-t border-dashed border-neutral-950 pt-6 flex justify-between items-center">
+              <div className="flex items-center gap-4">
+                <div className="h-8 w-8 rounded-full bg-orange-500 flex items-center justify-center">
+                  <span className="sr-only">Jamir O.</span>
+                </div>
+                <div>
+                  <p className="font-medium">Jamir O.</p>
+                  <p className="text-gray-300">Creative Developer</p>
+                </div>
+              </div>
+              <div className="w-fit px-2 bg-neutral-950 rounded-full flex items-center justify-center group">
+                <img
+                  src={`${process.env.NEXT_PUBLIC_URL}/customer/eventbrite.png`}
+                  alt="logos"
+                  className="w-24 grayscale group-hover:grayscale-0"
+                />
+                <MoveRight className="shrink-0 text-gray-400" />
+              </div>
+            </div>
+          </div>
+
+          {/* 3rd */}
+          <div className="col-span-6 bg-orange-600 p-8 relative flex flex-col justify-between">
+            <div className="space-y-4 py-2 pb-4">
+              <h1 className="text-2xl space-y-2">
+                We never imagined scaling with AI this easily{" "}
+                <span className="bg-white/40 border border-white px-0.5 block w-fit">
+                  Until JENV changed everything.
+                </span>
+              </h1>
+              <p className="text-white/80 leading-relaxed">
+                Our team went from handling repetitive tasks manually to
+                streamlining everything with AI-powered solutions. From smart
+                automation to advanced integrations, JENV gave us tools that
+                saved time and boosted performance. It feels like our business
+                finally runs on autopilot.
               </p>
-            </article>
+            </div>
+            <div className="border-t mt-auto border-orange-500 pt-6 flex justify-between items-center">
+              <div>
+                <p className="font-medium">Isabelle Thorne</p>
+                <p className="text-gray-300">Co-Founder & Tech Lead</p>
+              </div>
+              <div className="h-12 w-12 rounded-full overflow-hidden bg-gray-200 relative">
+                <img
+                  src={`${process.env.NEXT_PUBLIC_URL}/people/aam3.jpg`}
+                  alt="Isabelle Thorne"
+                  width={48}
+                  height={48}
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* 4th */}
+          <div className="col-span-3 bg-neutral-950 relative grid place-content-center group overflow-hidden transition-all">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-96 object-cover"
+            >
+              <source
+                src="https://www.pexels.com/download/video/7262257"
+                type="video/mp4"
+              />
+              Your browser does not support the video tag.
+            </video>
+            <div className="absolute transition-all duration-300 ease-in bottom-0 left-0 flex flex-col justify-between p-8">
+              <div className="flex justify-between items-center">
+                <div className="flex items-center gap-4">
+                  <div className="h-10 w-10 rounded-full bg-emerald-500 flex items-center justify-center">
+                    <span className="sr-only">Nico R.</span>
+                    <img
+                      src={`${process.env.NEXT_PUBLIC_URL}/people/aam3.jpg`}
+                      alt="Nico R"
+                      className="w-full h-full rounded-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <p className="font-medium">Nico R.</p>
+                    <p className="text-gray-600">Growth Marketer</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 5th */}
+          <div className="col-span-3 bg-neutral-900 p-8 flex flex-col justify-between relative">
+            <div className="absolute top-0 left-0 w-full h-0.5 border border-dashed border-neutral-950"></div>
+            <AnimatedBackground />
+            <p className="text-neutral-300 mb-8">
+              Managing large teams became effortless with JENV’s systems. Their
+              scalable solutions for collaboration and content management
+              removed all technical roadblocks. Now, our designers, marketers,
+              and developers work in sync — and our productivity has
+              skyrocketed.
+            </p>
+            <div className="border-t border-neutral-950 pt-6 flex justify-between items-center">
+              <div className="flex items-center gap-4">
+                <div className="h-10 w-10 rounded-full bg-emerald-500 flex items-center justify-center">
+                  <span className="sr-only">Rina A.</span>
+                  <img
+                    src={`${process.env.NEXT_PUBLIC_URL}/people/aam4.jpg`}
+                    alt="Rina A."
+                    className="w-full h-full rounded-full object-cover"
+                  />
+                </div>
+                <div>
+                  <p className="font-medium">Rina A.</p>
+                  <p className="text-gray-600">Operations Director</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
 }
-
-export default Testimonial;

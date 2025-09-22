@@ -48,7 +48,7 @@ const satoshi = localFont({
       style: "italic",
     },
   ],
-  variable:"--font-satoshi"
+  variable: "--font-satoshi",
 });
 const appleGaramond = localFont({
   src: [
@@ -83,7 +83,7 @@ const appleGaramond = localFont({
       style: "italic",
     },
   ],
-  variable:"--font-apple-garamond"
+  variable: "--font-apple-garamond",
 });
 
 export const metadata: Metadata = {
@@ -107,7 +107,7 @@ export const metadata: Metadata = {
     "Node.js developers",
     "software development company",
     "Jenv Tech",
-    "Jenv Tech developers"
+    "Jenv Tech developers",
   ],
   authors: [
     {
@@ -155,7 +155,9 @@ export default function RootLayout({
   return (
     <ViewTransitions>
       <html lang="en">
-        <body className={`${satoshi.variable} ${appleGaramond.variable} font-satoshi overflow-x-hidden`}>
+        <body
+          className={`${satoshi.variable} ${appleGaramond.variable} font-satoshi`}
+        >
           <svg
             width="1440"
             height="688"

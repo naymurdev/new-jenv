@@ -19,7 +19,8 @@ const items = [
     id: 1,
     url: "./sell-my-plot.png",
     title: "SellMyPlot",
-    description: "Built a full-stack real estate platform with secure login, verified property credentials, escrow-ready payment gateway, and an audit trail across every step.",
+    description:
+      "Built a full-stack real estate platform with secure login, verified property credentials, escrow-ready payment gateway, and an audit trail across every step.",
     tags: ["Sunrise", "Mountains", "Golden", "Scenic", "Inspiring"],
     technology: ["React", "Next.js", "Tailwind CSS", "Framer Motion"],
     websiteUrl: "https://sellmyplot.in",
@@ -85,7 +86,7 @@ clinic interface.`,
 ];
 function Projects() {
   return (
-    <div className="relative overflow-x-hidden ">
+    <div className="relative">
       <motion.img
         // initial={{ opacity: 0, y: -20, filter: "blur(10px)" }}
         // animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -159,17 +160,17 @@ function Projects() {
                         {item.title}
                       </h1>
                       <div className="flex flex-wrap gap-1 pt-2">
-                          {item?.technology?.map((tech, i) => {
-                            return (
-                              <span
-                                key={i}
-                                className="text-sm px-2 py-0.5 rounded-full bg-neutral-50 border text-black"
-                              >
-                                {tech} 
-                              </span>
-                            )
-                          })}
-                        </div>
+                        {item?.technology?.map((tech, i) => {
+                          return (
+                            <span
+                              key={i}
+                              className="text-sm px-2 py-0.5 rounded-full bg-neutral-50 border text-black"
+                            >
+                              {tech}
+                            </span>
+                          );
+                        })}
+                      </div>
                       <DialogDescription
                         disableLayoutAnimation
                         variants={{
@@ -179,10 +180,8 @@ function Projects() {
                         }}
                         className="pt-4"
                       >
-                        <p className="mt-3 text-zinc-300">
-                          {item.description}
-                        </p>
-                       
+                        <p className="mt-3 text-zinc-300">{item.description}</p>
+
                         <div className="flex flex-wrap gap-1 pt-2">
                           {item?.tags?.map((tag, i) => {
                             return (

@@ -4,13 +4,13 @@ import { motion } from "motion/react";
 import { LiquidGlassCard } from "@/components/ui/liquid-glass";
 import { ReactLenis } from "lenis/react";
 import Service from "./service";
-;
 import People from "./people";
 import Faqs from "./faqs";
 import Pricing from "./pricing";
 import Footer from "./footer";
 import Projects from "./projects";
 import WhyNotUs from "./why-not-us";
+import TestimonialsSection from "./testimonial";
 
 function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -43,12 +43,12 @@ function HeroSection() {
               shadowIntensity="sm"
               className="w-[11.5rem] mt-6 text-center text-2xl group py-3 mx-auto rounded-full relative cursor-pointer overflow-hidden text-white row-span-2"
             >
-                <div className="translate-y-0 text-center skew-y-0 transition duration-500 group-hover:-translate-y-[180%] group-hover:skew-y-12">
-                  Stop waiting
-                </div>
-                <div className="absolute translate-y-[150%] w-full left-0 text-center skew-y-12 transition duration-500 group-hover:-translate-y-8.5 group-hover:skew-y-0">
-                  Start building
-                </div>
+              <div className="translate-y-0 text-center skew-y-0 transition duration-500 group-hover:-translate-y-[180%] group-hover:skew-y-12">
+                Stop waiting
+              </div>
+              <div className="absolute translate-y-[150%] w-full left-0 text-center skew-y-12 transition duration-500 group-hover:-translate-y-8.5 group-hover:skew-y-0">
+                Start building
+              </div>
             </LiquidGlassCard>
           </article>
 
@@ -64,7 +64,7 @@ function HeroSection() {
         <Service />
         <WhyNotUs />
         <Projects />
-        {/* <Testimonial /> */}
+        <TestimonialsSection />
         <Pricing />
         <People />
         <Faqs />

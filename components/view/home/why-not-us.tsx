@@ -115,7 +115,7 @@ export default function WhyNotUs() {
   }, [isMobile, isShiftPressed, scrollNext, scrollPrev]);
 
   return (
-    <section className="relative z-10 2xl:px-0 sm:px-10 px-4 py-10 2xl:max-w-7xl max-w-6xl mx-auto overflow-x-hidden">
+    <section className="relative z-10 2xl:px-0 sm:px-10 px-4 py-10 2xl:max-w-7xl max-w-6xl mx-auto">
       <Heading
         badge="Why Us"
         title="Why Not Us?"
@@ -175,24 +175,24 @@ export default function WhyNotUs() {
 }
 
 const CardContent = ({ data }: { data: any }) => (
-    <div className="relative overflow-hidden transition-all duration-300 2xl:p-4 p-5 2xl:h-[32rem] h-[28rem] shadow-sm rounded-2xl border border-neutral-700">
-    <div className="absolute top-0 left-0 z-10 bg-gradient-to-b from-background via-orange-800/0 to-orange-900/0 rounded-2xl w-full h-full"/>
-      <img
-        src={data.imgSrc}
-        alt={data.title}
-        className="absolute top-16 rounded-xl w-full left-0 h-full object-cover brightness-80 group-hover:brightness-100 "
-      />
-      <ProgressiveBlur
-        className="pointer-events-none absolute rotate-180 -top-0 left-0 h-[30%] w-full rounded-lg"
-        blurIntensity={4}
-      />
-      <article className="relative z-10 flex flex-col h-full">
-        <h1 className="2xl:text-3xl lg:text-3xl text-2xl text-white">
-          {data.title}
-        </h1>
-        <p className="2xl:text-base text-sm leading-[120%] text-white/70 group-hover:text-white mt-2">
-          {data.des}
-        </p>
-      </article>
-    </div>
+  <div className="relative overflow-hidden transition-all duration-300 2xl:p-4 p-5 2xl:h-[32rem] h-[28rem] shadow-sm rounded-2xl border border-neutral-700">
+    <div className="absolute top-0 left-0 z-10 bg-gradient-to-b from-background via-orange-800/0 to-orange-900/0 rounded-2xl w-full h-full" />
+    <img
+      src={data.imgSrc}
+      alt={data.title}
+      className="absolute top-16 rounded-xl w-full left-0 h-full object-cover brightness-80 group-hover:brightness-100 "
+    />
+    <ProgressiveBlur
+      className="pointer-events-none absolute rotate-180 -top-0 left-0 h-[30%] w-full rounded-lg"
+      blurIntensity={4}
+    />
+    <article className="relative z-10 flex flex-col h-full">
+      <h1 className="2xl:text-3xl lg:text-3xl text-2xl text-white">
+        {data.title}
+      </h1>
+      <p className="2xl:text-base text-sm leading-[120%] text-white/70 group-hover:text-white mt-2">
+        {data.des}
+      </p>
+    </article>
+  </div>
 );

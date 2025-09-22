@@ -10,7 +10,7 @@ function Pricing() {
     "stroke-white [vector-effect:non-scaling-stroke] [stroke-dasharray:360] [stroke-dashoffset:360] transition-none group-hover:[stroke-dashoffset:0] group-hover:transition-[stroke-dashoffset] group-hover:duration-[2000ms] group-hover:ease-in-out";
 
   return (
-    <div className="relative overflow-x-hidden">
+    <div className="relative">
       <motion.img
         // initial={{ opacity: 0, y: -20, filter: "blur(10px)" }}
         // animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -243,7 +243,6 @@ function Pricing() {
                 1-month launch support
               </li>
             </ul>
-
           </div>
 
           {/* Card 3 */}

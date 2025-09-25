@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/linear-dialog";
 import { cn } from "@/lib/utils";
 import Heading from "@/components/common/heading";
+import { TimelineContent } from "@/components/ui/timeline-animation";
 const items = [
   {
     id: 1,
@@ -119,27 +120,29 @@ function Projects() {
                   style={{
                     borderRadius: "12px",
                   }}
-                  className={cn(
-                    "flex w-full flex-col overflow-hidden  border border-neutral-700  bg-black hover:bg-neutral-900 2xl:h-80 xl:h-72 lg:h-80 md:h-72 sm:h-60 h-72",
-                    item.className
-                  )}
+                  className={cn("", item.className)}
                 >
-                  <DialogImage
-                    // @ts-ignore
-                    src={item.url}
-                    alt=""
-                    className="h-full w-full object-cover"
-                  />
-                  <div className="flex flex-grow flex-row items-end justify-between p-3 absolute bottom-0 w-full">
-                    <div>
-                      <DialogTitle className="text-2xl text-zinc-50 font-medium">
-                        {item.title}
-                      </DialogTitle>
+                  <TimelineContent
+                    animationNum={Number(item.id)}
+                    className="border border-neutral-700 bg-black hover:bg-neutral-900 flex w-full flex-col 2xl:h-80 xl:h-72 lg:h-80 md:h-72 sm:h-60 h-72 overflow-hidden rounded-xl"
+                  >
+                    <DialogImage
+                      // @ts-ignore
+                      src={item.url}
+                      alt=""
+                      className="h-full w-full object-cover"
+                    />
+                    <div className="flex flex-grow flex-row items-end justify-between p-3 absolute bottom-0 w-full">
+                      <div>
+                        <DialogTitle className="text-2xl text-zinc-50 font-medium">
+                          {item.title}
+                        </DialogTitle>
+                      </div>
+                      <button className="absolute bottom-2 right-2 p-2 bg-orange text-white rounded-xl hover:bg-orange-700">
+                        <Plus className="w-6 h-6" />
+                      </button>
                     </div>
-                    <button className="absolute bottom-2 right-2 p-2 bg-orange text-white rounded-xl hover:bg-orange-700">
-                      <Plus className="w-6 h-6" />
-                    </button>
-                  </div>
+                  </TimelineContent>
                 </DialogTrigger>
                 <DialogContainer className="grid place-items-center p-0">
                   <DialogContent

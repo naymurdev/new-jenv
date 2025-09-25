@@ -21,11 +21,12 @@ import {
 import ProfileCardIcon from "../../icons/linkedin";
 import GlobeIcon from "../../icons/globe";
 import Heading from "@/components/common/heading";
+import { TimelineContent } from "@/components/ui/timeline-animation";
 
 const teamPeople = [
   {
     memberName: "Ethan Kiran D’souza",
-    id: 2,
+    id: 1,
     memeberHoverImg: TeamImage.team2,
     memberImage: TeamImage.EthanSprite,
     role: "Strategy Guy",
@@ -36,7 +37,7 @@ const teamPeople = [
   },
   {
     memberName: "Naymur Rahman Ripon",
-    id: 1,
+    id: 2,
     memeberHoverImg: TeamImage.team3,
     memberImage: TeamImage.NaymurSprite,
     role: "Web Guy",
@@ -107,17 +108,18 @@ function People() {
         ref={scope}
       >
         <div className="h-full md:py-16 pt-24 text-white">
-          <Heading badge="Who Are We" title="The People You’ll Blame" description="We’re a small, senior team. No interns, no bloated middle management. Just builders who love shipping."/>
-    
-          <div className="grid xl:grid-cols-4 grid-cols-2 w-full pt-10 gap-5 ">
+          <Heading
+            badge="Who Are We"
+            title="The People You’ll Blame"
+            description="We’re a small, senior team. No interns, no bloated middle management. Just builders who love shipping."
+          />
 
+          <div className="grid xl:grid-cols-4 grid-cols-2 w-full pt-10 gap-5 ">
             {teamPeople.map((member, i) => (
-              <motion.div
+              <TimelineContent
+                animationNum={Number(member.id)}
                 key={member.id}
-                className={cn(
-                  "relative z-2 group "
-                  // "hover:-rotate-0 hover:-translate-y-24 hover:z-10"
-                )}
+                className={cn("relative z-2 group ")}
               >
                 <div className="flex items-center cursor-pointer transition-all hover: justify-center 2xl:h-[25rem] xl:h-80 md:h-[28rem] sm:h-[22rem] h-56 rounded-lg bg-gradient-to-b from-orange via-[#f56632] to-[#fc6846]">
                   <figure className="relative h-full">
@@ -142,13 +144,11 @@ function People() {
                           {member.role}
                         </span>
                       </h1>
-                 
                     </div>
                   </article>
                 </div>
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-b from-orange via-[#f56632] to-[#fc6846] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center rounded-lg items-center w-full h-full p-4">
-             
                   {/* Social icons */}
                   <div className="flex gap-4 mt-4">
                     <a
@@ -174,18 +174,20 @@ function People() {
                   {/* Short description (optional) */}
                   <p className="mt-4 text-center 2xl:text-base text-sm">
                     {member.description[0]}
-                    {member.memberName === "Naymur Rahman Ripon" && member.description[1]}
+                    {member.memberName === "Naymur Rahman Ripon" &&
+                      member.description[1]}
                   </p>
                   <p className="mt-2 text-center 2xl:text-base text-sm md:block hidden">
-                    {member.memberName === "Naymur Rahman Ripon" && member.description[2]}
-                    {member.memberName === "Joshua Jacob" && member.description[1]}
+                    {member.memberName === "Naymur Rahman Ripon" &&
+                      member.description[2]}
+                    {member.memberName === "Joshua Jacob" &&
+                      member.description[1]}
                   </p>
                 </div>
-              </motion.div>
+              </TimelineContent>
             ))}
           </div>
         </div>
-
       </section>
     </>
   );

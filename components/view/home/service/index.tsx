@@ -6,10 +6,12 @@ import IntegrationIcon from "./integration";
 import LearnIcon from "./learn";
 import StrategyIcon from "./strategy";
 import { cn } from "@/lib/utils";
+import { TimelineContent } from "@/components/ui/timeline-animation";
+import { useRef } from "react";
 
 const services = [
   {
-    id: "01",
+    id: "1",
     name: "Strategy Sprint",
     icon: () => <StrategyIcon className="w-full h-full p-2" />,
     description:
@@ -17,7 +19,7 @@ const services = [
     image: "/placeholder.svg?height=200&width=280",
   },
   {
-    id: "02",
+    id: "2",
     name: "Zero-to-One Build",
     icon: () => <BuildIcon className="w-full h-full p-2" />,
     description:
@@ -25,7 +27,7 @@ const services = [
     image: "/placeholder.svg?height=200&width=280",
   },
   {
-    id: "03",
+    id: "3",
     name: "Smart Integrations",
     icon: () => <IntegrationIcon className="w-full h-full p-2" />,
     description:
@@ -33,7 +35,7 @@ const services = [
     image: "/placeholder.svg?height=200&width=280",
   },
   {
-    id: "04",
+    id: "4",
     name: "Pilot & Learn",
     icon: () => <LearnIcon className="w-full h-full p-2" />,
     description:
@@ -50,24 +52,30 @@ function Service() {
         title="What We Actually Do"
         description="Strategy is useless until it survives production."
       />
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:py-20 py-10">
-          {services.map((service) => (
-            <div
-              key={service.id}
-              className={cn("border-r group border-neutral-500 last:border-none sm:p-4 p-1", service.id === "02" && "lg:border-r border-0")}
-            >
-              <div className="relative w-full lg:h-52 sm:h-48 h-40">
-                <service.icon />
-              </div>
-              <div className="text-left pt-1.5">
-                <h1 className="text-white 2xl:text-4xl lg:text-3xl md:text-5xl sm:text-4xl text-xl">{service.name}</h1>
-                <p className="text-gray-400 text-sm mt-2">
-                  {service.description}
-                </p>
-              </div>
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:py-20 py-10">
+        {services.map((service) => (
+          <TimelineContent
+            animationNum={Number(service.id)}
+            key={service.id}
+            className={cn(
+              "border-r group border-neutral-500 last:border-none sm:p-4 p-1",
+              service.id === "02" && "lg:border-r border-0"
+            )}
+          >
+            <div className="relative w-full lg:h-52 sm:h-48 h-40">
+              <service.icon />
             </div>
-          ))}
-        </div>
+            <div className="text-left pt-1.5">
+              <h1 className="text-white 2xl:text-4xl lg:text-3xl md:text-5xl sm:text-4xl text-xl">
+                {service.name}
+              </h1>
+              <p className="text-gray-400 text-sm mt-2">
+                {service.description}
+              </p>
+            </div>
+          </TimelineContent>
+        ))}
+      </div>
     </section>
   );
 }

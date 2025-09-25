@@ -1,55 +1,45 @@
-import { motion, useInView, HTMLMotionProps } from "motion/react";
-import React from "react";
+"use client";
 
-type TimelineContentProps<T extends keyof HTMLElementTagNameMap> = {
+import { motion, MotionProps } from "motion/react";
+import { cn } from "@/lib/utils";
+
+interface TimelineContentProps<T extends keyof HTMLElementTagNameMap>
+  extends MotionProps {
   children: React.ReactNode;
-  animationNum: number;
   className?: string;
-  timelineRef: React.RefObject<HTMLElement | null>;
+  animationNum: number;
   as?: T;
-} & HTMLMotionProps<T>;
-
-export const TimelineContent = <T extends keyof HTMLElementTagNameMap = "div">({
-  children,
-  animationNum,
-  timelineRef,
-  className,
-  as,
-  ...props
-}: TimelineContentProps<T>) => {
-  const sequenceVariants = {
-    visible: (i: number) => ({
-      filter: "blur(0px)",
-      y: 0,
-      opacity: 1,
-      transition: {
-        delay: i * 0.5,
-        duration: 0.5,
-      },
-    }),
-    hidden: {
-      filter: "blur(20px)",
-      y: 0,
-      opacity: 0,
-    },
+  viewport?: {
+    amount?: number;
+    margin?: string;
+    once?: boolean;
   };
+}
 
-  const isInView = useInView(timelineRef, {
-    once: true,
-  });
-
+export function TimelineContent<T extends keyof HTMLElementTagNameMap>({
+  children,
+  className,
+  animationNum,
+  as,
+  viewport = { amount: 0.3, margin: "0px 0px -120px 0px", once: true },
+  ...props
+}: TimelineContentProps<T>) {
   const MotionComponent = motion[as || "div"] as React.ElementType;
 
   return (
     <MotionComponent
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      custom={animationNum}
-      variants={sequenceVariants}
-      className={className}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 0.6,
+        delay: animationNum * 0.2,
+        ease: "easeOut",
+      }}
+      viewport={viewport}
+      className={cn("relative", className)}
       {...props}
     >
       {children}
     </MotionComponent>
   );
-};
+}

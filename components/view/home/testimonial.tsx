@@ -2,6 +2,7 @@ import { MoveRight } from "lucide-react";
 import AnimatedBackground from "@/components/ui/animated-gradient";
 import Heading from "@/components/common/heading";
 import Image from "next/image";
+import { TimelineContent } from "@/components/ui/timeline-animation";
 
 export default function TestimonialSection() {
   return (
@@ -14,7 +15,10 @@ export default function TestimonialSection() {
       <div className="xl:px-0 px-4 mt-10">
         <div className="md:grid grid-cols-1 md:grid-cols-12 border border-neutral-900 text-left">
           {/* 1st */}
-          <div className="col-span-6 bg-neutral-950 p-8 rounded-l-xl">
+          <TimelineContent
+            animationNum={1}
+            className="col-span-6 bg-neutral-950 p-8 rounded-l-xl"
+          >
             <p className="text-neutral-300 mb-8 leading-[150%]">
               The team did an amazing job building a product website for my
               brand, which really elevated how we present ourselves to
@@ -55,10 +59,13 @@ export default function TestimonialSection() {
                 <MoveRight className="shrink-0 text-gray-400 group-hover:text-orange-500" />
               </div>
             </div>
-          </div>
+          </TimelineContent>
 
           {/* 2nd */}
-          <div className="col-span-6 bg-neutral-900 rounded-rt-lg p-8 text-white flex flex-col justify-between">
+          <TimelineContent
+            animationNum={2}
+            className="col-span-6 bg-neutral-900 rounded-rt-lg p-8 text-white flex flex-col justify-between"
+          >
             <p className="text-neutral-300 mb-8">
               JENV’s web development expertise gave us unmatched flexibility in
               creating digital experiences.{" "}
@@ -88,10 +95,13 @@ export default function TestimonialSection() {
                 <MoveRight className="shrink-0 text-gray-400" />
               </div>
             </div>
-          </div>
+          </TimelineContent>
 
           {/* 3rd */}
-          <div className="col-span-6 bg-orange-600 p-8 relative flex flex-col justify-between">
+          <TimelineContent
+            animationNum={3}
+            className="col-span-6 bg-orange-600 p-8 relative flex flex-col justify-between"
+          >
             <div className="space-y-4 py-2 pb-4">
               <h1 className="text-2xl space-y-2">
                 We never imagined scaling with AI this easily{" "}
@@ -122,10 +132,13 @@ export default function TestimonialSection() {
                 />
               </div>
             </div>
-          </div>
+          </TimelineContent>
 
           {/* 4th */}
-          <div className="col-span-3 bg-neutral-950 relative grid place-content-center group overflow-hidden transition-all">
+          <TimelineContent
+            animationNum={4}
+            className="col-span-3 bg-neutral-950 relative grid place-content-center group overflow-hidden transition-all"
+          >
             <video
               autoPlay
               loop
@@ -157,10 +170,13 @@ export default function TestimonialSection() {
                 </div>
               </div>
             </div>
-          </div>
+          </TimelineContent>
 
           {/* 5th */}
-          <div className="col-span-3 bg-neutral-900 p-8 flex flex-col justify-between relative">
+          <TimelineContent
+            animationNum={5}
+            className="col-span-3 bg-neutral-900 p-8 flex flex-col justify-between relative"
+          >
             <div className="absolute top-0 left-0 w-full h-0.5 border border-dashed border-neutral-950"></div>
             <AnimatedBackground />
             <p className="text-neutral-300 mb-8">
@@ -186,7 +202,7 @@ export default function TestimonialSection() {
                 </div>
               </div>
             </div>
-          </div>
+          </TimelineContent>
         </div>
       </div>
     </section>

@@ -3,6 +3,7 @@ import React from "react";
 import { motion } from "motion/react";
 import Heading from "@/components/common/heading";
 import { Check, CheckCheck } from "lucide-react";
+import { TimelineContent } from "@/components/ui/timeline-animation";
 function Pricing() {
   const baseStroke =
     "stroke-white [vector-effect:non-scaling-stroke] transition-none group-hover:opacity-0";
@@ -28,7 +29,10 @@ function Pricing() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 xl:gap-8 gap-4 py-10 text-white w-full">
           {/* Card 1 */}
-          <div className="bg-neutral-950 group p-4 rounded-3xl text-white flex flex-col gap-4 justify-between border border-white/10">
+          <TimelineContent
+            animationNum={1}
+            className="bg-neutral-950 group p-4 rounded-3xl text-white flex flex-col gap-4 justify-between border border-white/10"
+          >
             <div className="bg-background border border-neutral-800 p-6 rounded-2xl min-h-48 flex flex-col justify-between">
               <div className="w-full flex justify-between">
                 <svg
@@ -95,10 +99,13 @@ function Pricing() {
                 Built in Webflow or Framer
               </li>
             </ul>
-          </div>
+          </TimelineContent>
 
           {/* Card 2 */}
-          <div className="bg-orange group p-4 rounded-3xl flex flex-col gap-4 justify-between border border-white/10">
+          <TimelineContent
+            animationNum={2}
+            className="bg-orange group p-4 rounded-3xl flex flex-col gap-4 justify-between border border-white/10"
+          >
             <div className="bg-orange-700 p-6 rounded-2xl min-h-48 flex flex-col justify-between ">
               <div className="w-full flex justify-between">
                 <svg
@@ -243,10 +250,13 @@ function Pricing() {
                 1-month launch support
               </li>
             </ul>
-          </div>
+          </TimelineContent>
 
           {/* Card 3 */}
-          <div className="bg-neutral-950 group p-4 rounded-3xl text-white flex flex-col gap-4 justify-between border border-white/10">
+          <TimelineContent
+            animationNum={3}
+            className="bg-neutral-950 group p-4 rounded-3xl text-white flex flex-col gap-4 justify-between border border-white/10"
+          >
             <div className="bg-background border border-neutral-800 p-6 rounded-2xl min-h-48 flex flex-col justify-between">
               <div className="w-full flex justify-between">
                 <svg
@@ -313,7 +323,7 @@ function Pricing() {
                 30-day pilot + iterations
               </li>
             </ul>
-          </div>
+          </TimelineContent>
         </div>
       </section>
     </div>

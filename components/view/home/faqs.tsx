@@ -24,6 +24,8 @@ import { AnimatePresence, motion } from "motion/react";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { LiquidGlassCard } from "@/components/ui/liquid-glass";
 import { Loader } from "@/components/ui/loader";
+import { TimelineContent } from "@/components/ui/timeline-animation";
+import TextAnimation from "@/components/ui/scroll-text";
 
 const SkeletonTextLoader = () => {
   return (
@@ -161,7 +163,6 @@ export default function FaqQueryAgent() {
 
   return (
     <section className="pt-32 pb-20 flex justify-center px-4 sm:px-6 lg:px-8 relative">
- 
       <LiquidGlassCard
         draggable={false}
         blurIntensity="sm"
@@ -169,15 +170,37 @@ export default function FaqQueryAgent() {
         shadowIntensity="sm"
         className="sm:p-8 p-4 rounded-3xl w-full max-w-4xl md:p-12 relative overflow-hidden"
       >
-        <div className="relative z-10">
+        <TimelineContent animationNum={1} className="relative z-10">
           <div className="text-center mb-12">
-            <h2 className="font-librecaslon text-4xl sm:text-5xl lg:text-6xl text-white mb-4 tracking-tight">
-              The Anti-FAQ
-            </h2>
-            <p className="text-gray-300 sm:text-lg text-sm max-w-xl mx-auto leading-relaxed">
-              No dropdowns. No walls of text. Just Jenny, our AI assistant,
-              answering whatever’s on your mind.
-            </p>
+            <TextAnimation
+              text="The Anti-FAQ"
+              variants={{
+                hidden: { filter: "blur(10px)", opacity: 0, y: 4 },
+                visible: {
+                  filter: "blur(0px)",
+                  opacity: 1,
+                  y: 0,
+                  delay: 0.5,
+                  transition: { ease: "linear" },
+                },
+              }}
+              className="font-librecaslon text-4xl sm:text-5xl lg:text-6xl text-white mb-4 tracking-tight"
+            />
+            <TextAnimation
+              text="No dropdowns. No walls of text. Just Jenny, our AI assistant, answering whatever’s on your mind."
+              as="p"
+              variants={{
+                hidden: { filter: "blur(10px)", opacity: 0, y: 4 },
+                visible: {
+                  filter: "blur(0px)",
+                  opacity: 1,
+                  y: 0,
+                  delay: 0.5,
+                  transition: { ease: "linear" },
+                },
+              }}
+              className="text-gray-300 sm:text-lg text-sm max-w-xl mx-auto leading-relaxed"
+            />
           </div>
 
           <div className="relative w-full" data-lenis-prevent>
@@ -281,7 +304,10 @@ export default function FaqQueryAgent() {
             </div>
           )}
 
-          <div className="w-full space-y-2 mx-auto relative">
+          <TimelineContent
+            animationNum={2}
+            className="w-full space-y-2 mx-auto relative"
+          >
             <form
               onSubmit={handleSubmit}
               className="relative p-3 z-10 rounded-xl bg-neutral-900/30 backdrop-blur-md border border-neutral-800/20"
@@ -308,8 +334,8 @@ export default function FaqQueryAgent() {
                 </div>
               </div>
             </form>
-          </div>
-        </div>
+          </TimelineContent>
+        </TimelineContent>
       </LiquidGlassCard>
       <motion.img
         src="/rotate-bg.png"

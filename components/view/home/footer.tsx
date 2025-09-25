@@ -1,6 +1,8 @@
 "use client";
 import AnimatedBackground from "@/components/ui/animated-gradient";
 import BlackWhiteBlobs from "@/components/ui/black-white-blobs";
+import TextAnimation from "@/components/ui/scroll-text";
+import { TimelineContent } from "@/components/ui/timeline-animation";
 import VerticalBarsNoise from "@/components/ui/verticle-bars";
 import { ArrowBigRight, ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
@@ -42,13 +44,34 @@ function Footer() {
 
           <div className="flex flex-wrap  justify-between text-white">
             <article className="w-full max-w-lg relative text-left py-6">
-              <h1 className="relative z-10 xl:text-6xl md:text-4xl sm:text-3xl text-2xl">
-                We’re ready when you stop overthinking.
-              </h1>
-              <p className=" pt-4">
-                From MVPs to integrations, we handle the messy stuff so you can
-                focus on selling, fundraising, or just proving the thing works.
-              </p>
+              <TextAnimation
+                text="We’re ready when you stop overthinking."
+                variants={{
+                  hidden: { filter: "blur(10px)", opacity: 0, y: 4 },
+                  visible: {
+                    filter: "blur(0px)",
+                    opacity: 1,
+                    y: 0,
+                    delay: 0.5,
+                    transition: { ease: "linear" },
+                  },
+                }}
+                className="font-librecaslon text-4xl sm:text-5xl lg:text-6xl text-white mb-4 tracking-tight"
+              />
+              <TextAnimation
+                text="From MVPs to integrations, we handle the messy stuff so you can focus on selling, fundraising, or just proving the thing works."
+                variants={{
+                  hidden: { filter: "blur(10px)", opacity: 0, y: 4 },
+                  visible: {
+                    filter: "blur(0px)",
+                    opacity: 1,
+                    y: 0,
+                    delay: 0.5,
+                    transition: { ease: "linear" },
+                  },
+                }}
+                className=" pt-4"
+              />
             </article>
 
             <ul className="grid grid-cols-2 gap-10 h-fit lg:pt-10 lg:pb-0 pb-5">
@@ -86,7 +109,8 @@ function Footer() {
               </li>
             </ul>
           </div>
-          <figure
+          <TimelineContent
+            animationNum={2}
             style={{ clipPath: "url(#naymur1)" }}
             className="relative xl:h-fit lg:h-72 md:h-64 sm:h-44 h-28"
           >
@@ -104,7 +128,7 @@ function Footer() {
               />
             </svg>
             <BlackWhiteBlobs />
-          </figure>
+          </TimelineContent>
         </div>
       </footer>
     </>
